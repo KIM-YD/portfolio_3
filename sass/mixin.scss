@@ -1,1 +1,20 @@
 // adsf
+@mixin responsive($break) {
+    @if $break == moblie-size {
+        @media screen and (min-width:$break-mobile) {  //320px
+            @content;
+        }
+    }
+
+    @else if $break == tablet-size {
+        @media screen and (min-width:$break-tablet) {  // 768px
+            @content;
+        }
+    }
+
+    @else if $break == pc-size {
+        @media screen and (min-width:$break-pc) {  //1024px
+            @content;
+        }
+    }
+}
