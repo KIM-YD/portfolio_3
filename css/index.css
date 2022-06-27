@@ -1,0 +1,614 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0 auto;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+ul li, ol li {
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+p {
+  font-size: 0.9em;
+}
+
+span {
+  display: block;
+  font-size: 1em;
+}
+
+header,
+nav,
+main,
+section,
+aside,
+article,
+footer {
+  display: block;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: aqua;
+}
+
+header {
+  width: 150px;
+  border: 1.5px solid #fff9c5;
+  border-radius: 75px;
+  float: left;
+  margin: 20vh 30px;
+  opacity: 0.7;
+}
+
+header a {
+  border: 1.5px solid #fff9c5;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 15px auto;
+  line-height: 120px;
+  text-align: center;
+  color: #fff9c5;
+  font-size: 1.5rem;
+}
+
+header a:hover {
+  font-weight: bold;
+  border-width: 2.5px;
+}
+
+main #index {
+  width: 100%;
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #2f2039), to(#6f4b8d));
+  background: linear-gradient(#2f2039 30%, #6f4b8d);
+}
+
+main #index img {
+  width: 88%;
+  position: absolute;
+  bottom: 1.9vh;
+  left: 6%;
+}
+
+main #index .moon {
+  width: 180px;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+}
+
+main #index .star1 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+}
+
+main #index .star2 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+}
+
+main #index .star3 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 10%;
+  left: 80%;
+}
+
+main #index .star4 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 25%;
+  left: 60%;
+}
+
+main #index .star5 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 10%;
+  left: 45%;
+}
+
+main #index .star6 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 50%;
+  left: 90%;
+}
+
+main #index .star7 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 40%;
+  left: 10%;
+}
+
+main #index .star8 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+}
+
+main #index .bottom {
+  background-color: black;
+  height: 2vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+main #index h1 {
+  color: #fff9c5;
+  text-align: center;
+  position: absolute;
+  top: 30vh;
+  left: 39%;
+}
+
+main #about {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+
+main #about h2 {
+  display: none;
+}
+
+main #about .window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: table-cell;
+  width: 1000px;
+  height: 50vh;
+  margin: auto;
+  background-color: gray;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+main #about .window > .white-board {
+  width: 70%;
+  height: 80%;
+  background-color: #eeeeee;
+  border: 10px solid #c5c5c5;
+  border-radius: 10px 10px;
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+}
+
+main #about .window > .white-board > p {
+  margin-top: 20px;
+  text-indent: 20px;
+}
+
+main #about .window .leg1 {
+  width: 20px;
+  height: 80%;
+  background-color: #9c9c9c;
+  position: absolute;
+  left: 30%;
+  bottom: 0;
+}
+
+main #about .window .leg2 {
+  width: 20px;
+  height: 80%;
+  background-color: #9c9c9c;
+  position: absolute;
+  right: 30%;
+  bottom: 0;
+}
+
+main #about .window .leg3 {
+  width: 40%;
+  height: 20px;
+  background-color: #9c9c9c;
+  position: absolute;
+  top: 93%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+}
+
+main #skill {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+
+main #skill .window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1000px;
+  background-color: gray;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+main #skill .window .com {
+  position: relative;
+  width: 33.3%;
+  background: url(../images/computer.svg) no-repeat center;
+}
+
+main #skill .window .com h3 {
+  color: white;
+  text-align: center;
+  line-height: 21vh;
+  font-size: 1rem;
+  font-size: 0;
+}
+
+main #skill .window .com .logo {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+main #skill .window .com > p {
+  color: white;
+  position: absolute;
+  top: 42.5%;
+  left: 50%;
+  -webkit-transform: translate(-37%, -50%);
+          transform: translate(-37%, -50%);
+}
+
+main #skill .window .com .loading-bar {
+  height: 5px;
+  width: 30%;
+  background-color: gray;
+  position: absolute;
+  left: 35%;
+  top: 48%;
+}
+
+main #skill .window .com .loading-bar .percent {
+  height: 5px;
+  width: 50%;
+  background-color: red;
+  font-size: 0;
+}
+
+main #skill .window .com .loading-bar .photoshop {
+  width: 90%;
+  background-color: #2fbbe5;
+}
+
+main #skill .window .com .loading-bar .illust {
+  width: 85%;
+  background-color: #fe7b00;
+}
+
+main #skill .window .com .loading-bar .html {
+  width: 90%;
+  background-color: #fe7b00;
+}
+
+main #skill .window .com .loading-bar .css {
+  width: 90%;
+  background-color: #1572b6;
+}
+
+main #skill .window .com .loading-bar .javascript {
+  width: 70%;
+  background-color: #f0db4f;
+}
+
+main #skill .window .com .loading-bar .react {
+  width: 60%;
+  background-color: #61dafb;
+}
+
+main #more {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: gray;
+  overflow: hidden;
+}
+
+main #more > img {
+  position: absolute;
+  width: 2500px;
+  top: 70%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+main #more > div {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1250px;
+  top: 46%;
+  left: 50%;
+  -webkit-transform: translate(-42%, -50%);
+          transform: translate(-42%, -50%);
+}
+
+main #more .moniter-wrap {
+  width: 1000px;
+  height: 650px;
+}
+
+main #more .moniter-nav a {
+  width: 150px;
+  margin: 20px 0;
+  margin-left: 30px;
+  padding: 10px;
+  text-align: center;
+}
+
+main #more .moniter-nav a:first-child {
+  background-color: pink;
+  margin-left: 49px;
+  font-weight: 600;
+}
+
+main #more .moniter-nav a:nth-child(2) {
+  background-color: yellow;
+}
+
+main #more .moniter-nav a:last-child {
+  background-color: greenyellow;
+}
+
+main #more .moniter-nav a:hover {
+  margin-left: 49px;
+  font-weight: 600;
+}
+
+main #more .moniter-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+}
+
+main #more .portfolio-file1 {
+  float: left;
+  position: relative;
+  margin: 30px;
+  width: 250px;
+  height: 220px;
+}
+
+main #more .portfolio-file1 a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+main #more .portfolio-file1 a img:nth-child(2) {
+  width: 240px;
+  position: absolute;
+  top: 25%;
+}
+
+main #more .portfolio-file1 a img:last-child {
+  -webkit-transform: skewY(5deg) scaleX(0.8) translate(-32px, 10px);
+          transform: skewY(5deg) scaleX(0.8) translate(-32px, 10px);
+}
+
+main #more .portfolio-file1 a:hover img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+main #more .portfolio-file1 a:hover img:nth-child(2) {
+  width: 240px;
+  position: absolute;
+  left: 20%;
+  top: 25%;
+  -webkit-transition: -webkit-transform 3s;
+  transition: -webkit-transform 3s;
+  transition: transform 3s;
+  transition: transform 3s, -webkit-transform 3s;
+}
+
+main #more .portfolio-file1 a:hover img:last-child {
+  -webkit-transform: skewY(15deg) scaleX(0.5) translate(-125px, 33px);
+          transform: skewY(15deg) scaleX(0.5) translate(-125px, 33px);
+}
+
+main #more .portfolio-file2 {
+  float: left;
+  position: relative;
+  margin: 30px;
+  margin-left: 85px;
+  width: 220px;
+  height: 220px;
+  background: url(../images/file.svg) no-repeat;
+}
+
+main #more .portfolio-file2 > a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-80%, -60%);
+          transform: translate(-80%, -60%);
+  font-size: 0;
+}
+
+main #more .portfolio-file2 > a img {
+  width: 150%;
+}
+
+main #more .portfolio-file3 {
+  float: left;
+  position: relative;
+  margin: 30px;
+  margin-left: 85px;
+  width: 220px;
+  height: 220px;
+  background: url(../images/file.svg) no-repeat;
+}
+
+main #more .portfolio-file3 > a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-80%, -60%);
+          transform: translate(-80%, -60%);
+  font-size: 0;
+}
+
+main #more .portfolio-file3 > a img {
+  width: 150%;
+}
+
+main #more #a {
+  display: block;
+}
+
+main #more #b {
+  display: none;
+}
+
+main #more #c {
+  display: none;
+}
+
+main #more #c h4 {
+  color: white;
+  font-size: 4rem;
+}
+
+main #more #c div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 3px solid white;
+  margin: 30px 0;
+  padding: 10px;
+  border-radius: 10px 10px;
+}
+
+main #more #c div p {
+  color: white;
+  font-size: 1.5rem;
+}
+
+main #more #c div label {
+  font-size: 0;
+}
+
+main #more #c div input, main #more #c div textarea {
+  border: none;
+  width: 100%;
+  background-color: transparent;
+}
+
+main #more #c div textarea {
+  height: 85%;
+}
+
+main #more #c div:nth-child(4) {
+  display: block;
+  height: 200px;
+}
+
+main #more #c div:last-child {
+  border: none;
+  float: right;
+}
+
+main #more #c div:last-child a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+main #more #c div:last-child a:hover {
+  font-weight: bold;
+}
+
+footer {
+  display: none;
+}
+/*# sourceMappingURL=index.css.map */

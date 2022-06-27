@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
     <title>YoungDo</title>
+    <!-- <script src="./js/scrollAction.js"></script> -->
+    <!-- <script src="./js/buttonAction.js"></script> -->
 </head>
 <body>
     <header>
@@ -16,96 +19,147 @@
         </nav>
     </header>
     <main>
-        <section id="index">
-            <h1>환영문구</h1>
+        <section id="index" class="box">
+            <div class="star1">star</div>
+            <div class="star2">star</div>
+            <div class="star3">star</div>
+            <div class="star4">star</div>
+            <div class="star5">star</div>
+            <div class="star6">star</div>
+            <div class="star7">star</div>
+            <div class="star8">star</div>
+            <img src="./images/window.png" alt="window">
+            <img src="./images/city.png" alt="city">
+            <img class="moon" src="./images/moon.png" alt="moon">
+            <div class="bottom">.</div>
+            <h1>편안한 밤 되세요. 영도의 포트폴리오에서.</h1>
         </section>
-        <section>
-            <div id="about">
-                <h2>자기소개</h2>
+        <section id="about" class="box">
+            <h2>자기소개</h2>
+            <div class="window">
+                <div class="leg1"></div>
+                <div class="leg2"></div>
+                <div class="leg3"></div>
+                <div class="white-board">
+                    <!-- <p>About me</p> -->
+                </div>
             </div>
-            <div id="skill">
-                <div>
+        </section>
+        <section id="skill" class="box">
+            <div class="window">
+                <div class="com">
                     <h3>photoshop</h3>
-                    <img src="#" alt="computer">
+                    <img class="logo" width="40px" src="./images/file_type_photoshop_icon_130268.png" alt="photoshop">
+                    <p>90%</p>
                     <div class="loading-bar">
                         <div class="photoshop percent">
                             포토샵 퍼센트
                         </div>
                     </div>
                 </div>
-                <div>
-                    <h3>illust</h3>
-                    <img src="#" alt="computer">
+                <div class="com">
+                    <h3>illustrator</h3>
+                    <img class="logo" width="90px" src="./images/adobe_illustrator_logo_icon_167899.png" alt="ai">
+                    <p>85%</p>
                     <div class="loading-bar">
                         <div class="illust percent">
                             일러스트 퍼센트
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="com">
                     <h3>html</h3>
-                    <img src="#" alt="computer">
+                    <img class="logo" width="40px" src="./images/file_type_html_icon_130541.png" alt="html">
+                    <p>90%</p>
                     <div class="loading-bar">
                         <div class="html percent">
                             html 퍼센트
                         </div>
                     </div>
+                    
                 </div>
-                <div>
+                <div class="com">
                     <h3>css</h3>
-                    <img src="#" alt="computer">
+                    <img class="logo" width="40px" src="./images/file_type_css_icon_130661.png" alt="css">
+                    <p>90%</p>
                     <div class="loading-bar">
                         <div class="css percent">
                             css 퍼센트
                         </div>
                     </div>
                 </div>
-                <div id="overcom">
+                <div class="com" id="overcom">
                     <h3>js</h3>
-                    <img src="#" alt="computer">
+                    <img class="logo" width="35px" src="./images/javascript_original_logo_icon_146455.png" alt="js">
+                    <p>70%</p>
                     <div class="loading-bar">
                         <div class="javascript percent">
                             javascript 퍼센트
                         </div>
                     </div>
                 </div>
-                <div>
-                    <h3>java</h3>
-                    <img src="#" alt="computer">
+                <div class="com">
+                    <h3>react</h3>
+                    <img class="logo" width="40px" src="./images/react_original_logo_icon_146374.png" alt="react">
+                    <p>60%</p>
                     <div class="loading-bar">
-                        <div class="java percent">
-                            java 퍼센트
+                        <div class="react percent">
+                            react 퍼센트
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </section>
+        <section id="more" class="box">
+            <img src="./images/computer_copy.svg" alt="moniter">
+            <div>
+                <div class="moniter-wrap">
+                    <div id="a" class="moniter-section">
+                        <div class="portfolio-file1">
+                            <a href="#">
+                                <img src="./images/filebottom.svg" alt="">
+                                <img src="./images/1-1.faq_pc.jpg" alt="">
+                                <img src="./images/fileon.svg" alt="">
+                            </a>
+                        </div>
+                        <!-- <div class="portfolio-file2">
+                            <a href="#"><img src="./images/1-1.faq_pc.jpg" alt="portfolio-1"></a>
+                        </div>
+                        <div class="portfolio-file3">
+                            <a href="#"><img src="./images/1-1.faq_pc.jpg" alt="portfolio-1"></a>
+                        </div> -->
+                    </div>
+                    <div id="b" class="moniter-section">
+                        <div>
+                            <p>insert animation</p>
+                        </div>
+                    </div>
+                    <div id="c" class="moniter-section">
+                        <h4>Contact Me</h4>
+                        <div>
+                            <p>Name</p>
+                            <input type="text" id="name" name="name" maxlength="100" value=""><label for="email1">직접 입력</label>
+                        </div>
+                        <div>
+                            <p>Email</p>
+                            <input type="text" id="email" name="email" maxlength="100" value=""><label for="email1">직접 입력</label>
+                        </div>
+                        <div>
+                            <p>Message</p>
+                            <textarea id="txt_content" name="content" maxlength="4000"></textarea>
+                        </div>
+                        <div>
+                            <a href="#">Send</a>
                         </div>
                     </div>
                 </div>
-                
-            </div>
-        </section>
-        <section id="more">
-            <img src="#" alt="moniter">
-            <div class="moniter-nav">
-                <a href="#a">1</a>
-                <a href="#b">2</a>
-                <a href="#c">3</a>
-            </div>
-            <div class="moniter-wrap">
-                <div id="a" class="moniter-section">
-                    <div>
-                        <img src="#" alt="file"><!--포폴만든거만큼 만들기-->
-                        <a href="#"><img src="#" alt="portfolio-1"></a>
-                    </div>
-                </div>
-                <div id="b" class="moniter-section">
-                    <div>
-                        <!--애니메이션 파트-->
-                    </div>
-                </div>
-                <div id="C" class="moniter-section">
-                    <h4>Contact Me</h4>
-                    <p>Email</p>
-                    <div>Message</div>
+                <div class="moniter-nav">
+                    <a id="ab">PORTFOLIO</a>
+                    <a id="bb">ANIMATION</a>
+                    <a id="cb">CONTACT ME</a>
                 </div>
             </div>
+            <script src="./js/buttonAction.js"></script>
         </section>
     </main>
     <footer>
