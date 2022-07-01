@@ -56,7 +56,7 @@ footer {
 }
 
 body {
-  background-color: aqua;
+  background-color: gray;
 }
 
 header {
@@ -92,11 +92,47 @@ main #index {
   background: linear-gradient(#2f2039 30%, #6f4b8d);
 }
 
+main #index .scrapper {
+  width: 90%;
+  height: 98vh;
+  background-color: rgba(153, 205, 50, 0.24);
+  position: absolute;
+  bottom: 1.9vh;
+  left: 5%;
+}
+
 main #index img {
   width: 88%;
   position: absolute;
   bottom: 1.9vh;
   left: 6%;
+}
+
+@-webkit-keyframes shining {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shining {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+main #index .shine {
+  -webkit-animation-name: shining;
+          animation-name: shining;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
 }
 
 main #index .moon {
@@ -115,6 +151,8 @@ main #index .star1 {
   position: absolute;
   top: 20%;
   left: 40%;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 
 main #index .star2 {
@@ -126,6 +164,8 @@ main #index .star2 {
   position: absolute;
   top: 40%;
   left: 30%;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
 }
 
 main #index .star3 {
@@ -137,6 +177,8 @@ main #index .star3 {
   position: absolute;
   top: 10%;
   left: 80%;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
 }
 
 main #index .star4 {
@@ -148,6 +190,8 @@ main #index .star4 {
   position: absolute;
   top: 25%;
   left: 60%;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
 }
 
 main #index .star5 {
@@ -159,6 +203,8 @@ main #index .star5 {
   position: absolute;
   top: 10%;
   left: 45%;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 
 main #index .star6 {
@@ -170,6 +216,8 @@ main #index .star6 {
   position: absolute;
   top: 50%;
   left: 90%;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
 }
 
 main #index .star7 {
@@ -181,6 +229,8 @@ main #index .star7 {
   position: absolute;
   top: 40%;
   left: 10%;
+  -webkit-animation-duration: 1.8s;
+          animation-duration: 1.8s;
 }
 
 main #index .star8 {
@@ -192,6 +242,8 @@ main #index .star8 {
   position: absolute;
   top: 10%;
   left: 15%;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 
 main #index .bottom {
@@ -210,18 +262,26 @@ main #index h1 {
   left: 39%;
 }
 
-main #about {
+main section:nth-child(2) {
+  overflow-y: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200%;
+}
+
+main section:nth-child(2) #about {
   position: relative;
   width: 100%;
   height: 100vh;
   background-color: black;
 }
 
-main #about h2 {
+main section:nth-child(2) #about h2 {
   display: none;
 }
 
-main #about .window {
+main section:nth-child(2) #about .window {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -235,7 +295,7 @@ main #about .window {
   overflow: hidden;
 }
 
-main #about .window > .white-board {
+main section:nth-child(2) #about .window > .white-board {
   width: 70%;
   height: 80%;
   background-color: #eeeeee;
@@ -248,12 +308,14 @@ main #about .window > .white-board {
           transform: translate(-50%, 0%);
 }
 
-main #about .window > .white-board > p {
+main section:nth-child(2) #about .window > .white-board > p {
   margin-top: 20px;
   text-indent: 20px;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
-main #about .window .leg1 {
+main section:nth-child(2) #about .window .leg1 {
   width: 20px;
   height: 80%;
   background-color: #9c9c9c;
@@ -262,7 +324,7 @@ main #about .window .leg1 {
   bottom: 0;
 }
 
-main #about .window .leg2 {
+main section:nth-child(2) #about .window .leg2 {
   width: 20px;
   height: 80%;
   background-color: #9c9c9c;
@@ -271,7 +333,7 @@ main #about .window .leg2 {
   bottom: 0;
 }
 
-main #about .window .leg3 {
+main section:nth-child(2) #about .window .leg3 {
   width: 40%;
   height: 20px;
   background-color: #9c9c9c;
@@ -282,14 +344,14 @@ main #about .window .leg3 {
           transform: translate(-50%, 0%);
 }
 
-main #skill {
+main section:nth-child(2) #skill {
   position: relative;
   width: 100%;
   height: 100vh;
   background-color: black;
 }
 
-main #skill .window {
+main section:nth-child(2) #skill .window {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -304,13 +366,13 @@ main #skill .window {
           transform: translate(-50%, -50%);
 }
 
-main #skill .window .com {
+main section:nth-child(2) #skill .window .com {
   position: relative;
   width: 33.3%;
   background: url(../images/computer.svg) no-repeat center;
 }
 
-main #skill .window .com h3 {
+main section:nth-child(2) #skill .window .com h3 {
   color: white;
   text-align: center;
   line-height: 21vh;
@@ -318,7 +380,7 @@ main #skill .window .com h3 {
   font-size: 0;
 }
 
-main #skill .window .com .logo {
+main section:nth-child(2) #skill .window .com .logo {
   position: absolute;
   top: 30%;
   left: 50%;
@@ -326,7 +388,7 @@ main #skill .window .com .logo {
           transform: translate(-50%, -50%);
 }
 
-main #skill .window .com > p {
+main section:nth-child(2) #skill .window .com > p {
   color: white;
   position: absolute;
   top: 42.5%;
@@ -335,7 +397,7 @@ main #skill .window .com > p {
           transform: translate(-37%, -50%);
 }
 
-main #skill .window .com .loading-bar {
+main section:nth-child(2) #skill .window .com .loading-bar {
   height: 5px;
   width: 30%;
   background-color: gray;
@@ -344,39 +406,39 @@ main #skill .window .com .loading-bar {
   top: 48%;
 }
 
-main #skill .window .com .loading-bar .percent {
+main section:nth-child(2) #skill .window .com .loading-bar .percent {
   height: 5px;
   width: 50%;
   background-color: red;
   font-size: 0;
 }
 
-main #skill .window .com .loading-bar .photoshop {
+main section:nth-child(2) #skill .window .com .loading-bar .photoshop {
   width: 90%;
   background-color: #2fbbe5;
 }
 
-main #skill .window .com .loading-bar .illust {
+main section:nth-child(2) #skill .window .com .loading-bar .illust {
   width: 85%;
   background-color: #fe7b00;
 }
 
-main #skill .window .com .loading-bar .html {
+main section:nth-child(2) #skill .window .com .loading-bar .html {
   width: 90%;
   background-color: #fe7b00;
 }
 
-main #skill .window .com .loading-bar .css {
+main section:nth-child(2) #skill .window .com .loading-bar .css {
   width: 90%;
   background-color: #1572b6;
 }
 
-main #skill .window .com .loading-bar .javascript {
+main section:nth-child(2) #skill .window .com .loading-bar .javascript {
   width: 70%;
   background-color: #f0db4f;
 }
 
-main #skill .window .com .loading-bar .react {
+main section:nth-child(2) #skill .window .com .loading-bar .react {
   width: 60%;
   background-color: #61dafb;
 }
@@ -386,16 +448,11 @@ main #more {
   width: 100%;
   height: 100vh;
   background-color: gray;
+  background: url(../images/computer_copy.svg) no-repeat;
+  background-position: 50% -110px;
+  background-size: 2500px;
   overflow: hidden;
-}
-
-main #more > img {
-  position: absolute;
-  width: 2500px;
-  top: 70%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  left: 100%;
 }
 
 main #more > div {
@@ -404,10 +461,10 @@ main #more > div {
   display: -ms-flexbox;
   display: flex;
   width: 1250px;
-  top: 46%;
+  top: 80px;
   left: 50%;
-  -webkit-transform: translate(-42%, -50%);
-          transform: translate(-42%, -50%);
+  -webkit-transform: translate(-41.5%, 0%);
+          transform: translate(-41.5%, 0%);
 }
 
 main #more .moniter-wrap {
@@ -418,14 +475,14 @@ main #more .moniter-wrap {
 main #more .moniter-nav a {
   width: 150px;
   margin: 20px 0;
-  margin-left: 30px;
+  margin-left: 27px;
   padding: 10px;
   text-align: center;
 }
 
 main #more .moniter-nav a:first-child {
   background-color: pink;
-  margin-left: 49px;
+  margin-left: 43px;
   font-weight: 600;
 }
 
@@ -438,7 +495,7 @@ main #more .moniter-nav a:last-child {
 }
 
 main #more .moniter-nav a:hover {
-  margin-left: 49px;
+  margin-left: 43px;
   font-weight: 600;
 }
 
@@ -485,10 +542,6 @@ main #more .portfolio-file1 a:hover img:nth-child(2) {
   position: absolute;
   left: 20%;
   top: 25%;
-  -webkit-transition: -webkit-transform 3s;
-  transition: -webkit-transform 3s;
-  transition: transform 3s;
-  transition: transform 3s, -webkit-transform 3s;
 }
 
 main #more .portfolio-file1 a:hover img:last-child {
@@ -547,6 +600,10 @@ main #more #a {
 }
 
 main #more #b {
+  display: none;
+}
+
+main #more #b p {
   display: none;
 }
 

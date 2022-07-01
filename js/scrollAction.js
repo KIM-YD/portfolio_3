@@ -6,7 +6,7 @@ window.onload = function () {
     var elm = document.getElementsByClassName(className);
 
     for (var i = 0; i < elm.length; i++) {
-        elm[i].addEventListener("mousewheel", MouseWheelHandler, false);
+        elm[i].addEventListener("wheel", MouseWheelHandler, false);
         // elm[i].addEventListener("DOMMouseScroll", MouseWheelHandler, true);
     }
 }
@@ -27,6 +27,7 @@ function MouseWheelHandler(e) {
     var index = Array.prototype.indexOf.call(p.children, e.target);
     var elmArr = e.target.parentElement.children;
     currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    // currentScroll = document.body.scrollTop;
     var NextTarget = currentScroll;
     
     if (delta > 0) {
@@ -63,6 +64,7 @@ function MouseWheelHandler(e) {
             else
             {
                 currentScroll = NextTarget;
+                console.log(currentScroll);
             }
             window.scrollTo(0, currentScroll);
         }

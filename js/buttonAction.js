@@ -11,7 +11,7 @@ abutton.addEventListener('click', function(){
     bwindow.style.display="none";
     cwindow.style.display="none";
 
-    abutton.style.marginLeft="49px";
+    abutton.style.marginLeft="43px";
     bbutton.style.marginLeft="30px";
     cbutton.style.marginLeft="30px";
 
@@ -26,7 +26,7 @@ bbutton.addEventListener('click', function(){
     cwindow.style.display="none";
 
     abutton.style.marginLeft="30px";
-    bbutton.style.marginLeft="49px";
+    bbutton.style.marginLeft="43px";
     cbutton.style.marginLeft="30px";
 
     abutton.style.fontWeight="400";
@@ -41,7 +41,7 @@ cbutton.addEventListener('click', function(){
 
     abutton.style.marginLeft="30px";
     bbutton.style.marginLeft="30px";
-    cbutton.style.marginLeft="49px";
+    cbutton.style.marginLeft="43px";
 
     abutton.style.fontWeight="400";
     bbutton.style.fontWeight="400";
