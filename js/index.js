@@ -1,39 +1,95 @@
-var section1 = document.getElementById("index");
-var section2 = document.getElementById("about");
-var section3 = document.getElementById("skill");
-var section4 = document.getElementById("more");
-var scrollEvent = false;
+window.onload = function() {
+    var abutton = document.getElementById("ab");
+    var bbutton = document.getElementById("bb");
+    var cbutton = document.getElementById("cb");
 
-section1.addEventListener("wheel", MouseWheelHandlerA, false);
-section2.addEventListener("wheel", MouseWheelHandlerB, false);
-section3.addEventListener("wheel", MouseWheelHandlerC, false);
-section4.addEventListener("wheel", MouseWheelHandlerD, false);
+    var awindow = document.getElementById("a");
+    var bwindow = document.getElementById("b");
+    var cwindow = document.getElementById("c");
 
-window.addEventListener("resize", function(e){
-    e.preventDefault();
-    window.scrollTo(0, 0);
-});
+    var section1 = document.getElementById("index");
+    var section2 = document.getElementById("about");
+    var section3 = document.getElementById("skill");
+    var section4 = document.getElementById("more");
 
-function MouseWheelHandlerA(e) {
-    e.preventDefault();
-    var delta = 0;
-    var x1 = section2.offsetLeft;
-    var y1 = section2.offsetTop;
-
-    if (!e) e = window.event;
-    if (e.wheelDelta) {
-        delta = e.wheelDelta / 120;
-        if (window.opera) delta = -delta;
-    }
-    else if (e.detail)
-        delta = -e.detail / 3;
-
-    if (delta > 0) {
+    var scrollEvent = false;
+    
+    abutton.addEventListener('click', function(){
+        awindow.style.display="block";
+        bwindow.style.display="none";
+        cwindow.style.display="none";
+    
+        abutton.style.marginLeft="43px";
+        bbutton.style.marginLeft="30px";
+        cbutton.style.marginLeft="30px";
+    
+        abutton.style.fontWeight="bold";
+        bbutton.style.fontWeight="400";
+        cbutton.style.fontWeight="400";
+    }, false);
+    
+    bbutton.addEventListener('click', function(){
+        awindow.style.display="none";
+        bwindow.style.display="block";
+        cwindow.style.display="none";
+    
+        abutton.style.marginLeft="30px";
+        bbutton.style.marginLeft="43px";
+        cbutton.style.marginLeft="30px";
+    
+        abutton.style.fontWeight="400";
+        bbutton.style.fontWeight="bold";
+        cbutton.style.fontWeight="400";
+    }, false);
+    
+    cbutton.addEventListener('click', function(){
+        awindow.style.display="none";
+        bwindow.style.display="none";
+        cwindow.style.display="block";
+    
+        abutton.style.marginLeft="30px";
+        bbutton.style.marginLeft="30px";
+        cbutton.style.marginLeft="43px";
+    
+        abutton.style.fontWeight="400";
+        bbutton.style.fontWeight="400";
+        cbutton.style.fontWeight="bold";
+    }, false);
+    
+    section1.addEventListener("wheel", MouseWheelHandlerA, false);
+    section2.addEventListener("wheel", MouseWheelHandlerB, false);
+    section3.addEventListener("wheel", MouseWheelHandlerC, false);
+    section4.addEventListener("wheel", MouseWheelHandlerD, false);
+    
+    window.addEventListener("resize", function(e){
+        e.preventDefault();
         window.scrollTo(0, 0);
-    }else if (delta < 0){
-        if( scrollEvent == false ) {
+    });
+    
+    function MouseWheelHandlerA(e) {
+        e.preventDefault();
+        var delta = 0;
+        var x1 = section2.offsetLeft;
+        var y1 = section2.offsetTop;
+    
+        if (!e) e = window.event;
+        if (e.wheelDelta) {
+            delta = e.wheelDelta / 120;
+            if (window.opera) delta = -delta;
+        }
+        else if (e.detail)
+            delta = -e.detail / 3;
+    
+        if (delta > 0 && scrollEvent == false ) {
+            scrollEvent = true;
+            window.scrollTo(0, 0);
+            setTimeout(function() {
+                scrollEvent = false;
+            },500);
+        }else if (delta < 0 && scrollEvent == false){
             scrollEvent = true;
             document.getElementById("scrapperWindow1").style.background="black";
+            section2.querySelector("img").style.left = "-1000px";
             document.getElementById("navigation").animate([{opacity:0.7},{opacity:0, offset:0.8},{opacity:0.7}],{duration: 1500});
             section1.querySelector("h1").animate([{opacity:1},{opacity:0, offset:0.8},{opacity:1}],{duration: 2000});
             for(var i=0; i<8; i++){
@@ -54,34 +110,38 @@ function MouseWheelHandlerA(e) {
             },2000);
             setTimeout(function(){
                 document.getElementById("scrapperWindow1").style.background="transparent";
+                section2.querySelector("img").animate([{left: "-1000px"},{left: "90px"}],1000);
+                section2.querySelector("img").style.left = "90px";
                 document.getElementById("navigation").style.display="block";
                 section1.querySelector("h1").style.display="block";
                 scrollEvent = false;
             },3000);
         }
     }
-}
-
-function MouseWheelHandlerB(e) {
-    e.preventDefault();
-    var delta = 0;
-    var x1 = section1.offsetLeft;
-    var y1 = section1.offsetTop;
-    var x2 = section3.offsetLeft;
-    var y2 = section3.offsetTop;
-
-    if (!e) e = window.event;
-    if (e.wheelDelta) {
-        delta = e.wheelDelta / 120;
-        if (window.opera) delta = -delta;
-    }
-    else if (e.detail)
-        delta = -e.detail / 3;
-        
-    if (delta > 0) {
-        window.scrollTo(x1, y1);
-    }else if (delta < 0){
-        if( scrollEvent == false ) {
+    
+    function MouseWheelHandlerB(e) {
+        e.preventDefault();
+        var delta = 0;
+        var x1 = section1.offsetLeft;
+        var y1 = section1.offsetTop;
+        var x2 = section3.offsetLeft;
+        var y2 = section3.offsetTop;
+    
+        if (!e) e = window.event;
+        if (e.wheelDelta) {
+            delta = e.wheelDelta / 120;
+            if (window.opera) delta = -delta;
+        }
+        else if (e.detail)
+            delta = -e.detail / 3;
+            
+        if (delta > 0 && scrollEvent == false) {
+            scrollEvent = true;
+            window.scrollTo(x1, y1);
+            setTimeout(()=>{
+                scrollEvent = false;
+            },500);
+        }else if (delta < 0 && scrollEvent == false){
             scrollEvent = true;
             var tim;
             var mLogo = document.getElementsByClassName("logo");
@@ -193,28 +253,26 @@ function MouseWheelHandlerB(e) {
 
                 scrollEvent = false;
             },2800);
-        } 
+        }
     }
-}
-
-function MouseWheelHandlerC(e) {
-    e.preventDefault();
-    var delta = 0;
-    var x1 = section2.offsetLeft;
-    var y1 = section2.offsetTop;
-    var x2 = section4.offsetLeft;
-    var y2 = section4.offsetTop;
-
-    if (!e) e = window.event;
-    if (e.wheelDelta) {
-        delta = e.wheelDelta / 120;
-        if (window.opera) delta = -delta;
-    }
-    else if (e.detail)
-        delta = -e.detail / 3;
-        
-    if (delta > 0) {
-        if( scrollEvent == false ) {
+    
+    function MouseWheelHandlerC(e) {
+        e.preventDefault();
+        var delta = 0;
+        var x1 = section2.offsetLeft;
+        var y1 = section2.offsetTop;
+        var x2 = section4.offsetLeft;
+        var y2 = section4.offsetTop;
+    
+        if (!e) e = window.event;
+        if (e.wheelDelta) {
+            delta = e.wheelDelta / 120;
+            if (window.opera) delta = -delta;
+        }
+        else if (e.detail)
+            delta = -e.detail / 3;
+            
+        if (delta > 0 && scrollEvent ==false) {
             scrollEvent = true;
             var tim;
             clearInterval(tim);
@@ -239,9 +297,7 @@ function MouseWheelHandlerC(e) {
                 document.getElementById("scrapperWindow1").style.background="transparent";
                 scrollEvent = false;
             },2000);
-        }
-    }else if (delta < 0){
-        if( scrollEvent == false ) {
+        }else if (delta < 0 && scrollEvent == false){
             scrollEvent = true;
             var mLogo = document.getElementsByClassName("logo");
             var loBar = document.getElementsByClassName("loading-bar");
@@ -298,26 +354,24 @@ function MouseWheelHandlerC(e) {
             },500);
         }
     }
-}
-
-function MouseWheelHandlerD(e) {
-    e.preventDefault();
-    var delta = 0;
-    var x1 = section3.offsetLeft;
-    var y1 = section3.offsetTop;
-    var x2 = section4.offsetLeft;
-    var y2 = section4.offsetTop;
-
-    if (!e) e = window.event;
-    if (e.wheelDelta) {
-        delta = e.wheelDelta / 120;
-        if (window.opera) delta = -delta;
-    }
-    else if (e.detail)
-        delta = -e.detail / 3;
-        
-    if (delta > 0) {
-        if( scrollEvent == false) {
+    
+    function MouseWheelHandlerD(e) {
+        e.preventDefault();
+        var delta = 0;
+        var x1 = section3.offsetLeft;
+        var y1 = section3.offsetTop;
+        var x2 = section4.offsetLeft;
+        var y2 = section4.offsetTop;
+    
+        if (!e) e = window.event;
+        if (e.wheelDelta) {
+            delta = e.wheelDelta / 120;
+            if (window.opera) delta = -delta;
+        }
+        else if (e.detail)
+            delta = -e.detail / 3;
+            
+        if (delta > 0 && scrollEvent == false) {
             scrollEvent = true;
             var mLogo = document.getElementsByClassName("logo");
             var loBar = document.getElementsByClassName("loading-bar");
@@ -337,8 +391,12 @@ function MouseWheelHandlerD(e) {
             setTimeout(()=>{
                 scrollEvent = false;
             },500);
+        }else if (delta < 0 && scrollEvent == false){
+            scrollEvent = true;
+            window.scrollTo(x2, y2);
+            setTimeout(()=>{
+                scrollEvent = false;
+            },500);
         }
-    }else if (delta < 0){
-        window.scrollTo(x2, y2);
     }
 }

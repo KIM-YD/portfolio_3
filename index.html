@@ -6,16 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
     <title>YoungDo</title>
-    <script>
-        window.onload = function() {
-            var xy = document.getElementById("index").offsetLeft;
-            console.log(xy);
-            
-        }
-    </script>
+    <script src="./js/index.js"></script>
 </head>
 <body>
-    <header>
+    <header id="navigation">
         <nav>
             <a href="#index">Index</a>
             <a href="#about">About</a>
@@ -33,9 +27,9 @@
             <div class="star6 shine">star</div>
             <div class="star7 shine">star</div>
             <div class="star8 shine">star</div>
-            <img src="./images/window.png" alt="window">
-            <img src="./images/city.png" alt="city">
             <img class="moon" src="./images/moon.png" alt="moon">
+            <img src="./images/window.svg" alt="window">
+            <img src="./images/city.svg" alt="city">
             <div class="bottom">.</div>
             <h1>편안한 밤 되세요. 영도의 포트폴리오에서.</h1>
         </section>
@@ -49,11 +43,14 @@
                     <div class="white-board">
                         <p>About me</p>
                     </div>
+                    <img src="./images/person.svg" alt="person">
+                    <div id="scrapperWindow1"></div>
                 </div>
             </div>
             <div id="skill" class="box">
                 <div class="window">
                     <div class="com">
+                        <img class="smallcom" src="./images/computer.svg" alt="action-com">
                         <h3>photoshop</h3>
                         <img class="logo" width="40px" src="./images/file_type_photoshop_icon_130268.png" alt="photoshop">
                         <p>90%</p>
@@ -64,6 +61,7 @@
                         </div>
                     </div>
                     <div class="com">
+                        <img class="smallcom" src="./images/computer.svg" alt="action-com">
                         <h3>illustrator</h3>
                         <img class="logo" width="90px" src="./images/adobe_illustrator_logo_icon_167899.png" alt="ai">
                         <p>85%</p>
@@ -74,6 +72,7 @@
                         </div>
                     </div>
                     <div class="com">
+                        <img class="smallcom" src="./images/computer.svg" alt="action-com">
                         <h3>html</h3>
                         <img class="logo" width="40px" src="./images/file_type_html_icon_130541.png" alt="html">
                         <p>90%</p>
@@ -85,6 +84,7 @@
                         
                     </div>
                     <div class="com">
+                        <img class="smallcom" src="./images/computer.svg" alt="action-com">
                         <h3>css</h3>
                         <img class="logo" width="40px" src="./images/file_type_css_icon_130661.png" alt="css">
                         <p>90%</p>
@@ -94,7 +94,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="com" id="overcom">
+                    <div class="com">
+                        <img  id="overcom" class="smallcom" src="./images/computer.svg" alt="action-com">
                         <h3>js</h3>
                         <img class="logo" width="35px" src="./images/javascript_original_logo_icon_146455.png" alt="js">
                         <p>70%</p>
@@ -105,6 +106,7 @@
                         </div>
                     </div>
                     <div class="com">
+                        <img class="smallcom" src="./images/computer.svg" alt="action-com">
                         <h3>react</h3>
                         <img class="logo" width="40px" src="./images/react_original_logo_icon_146374.png" alt="react">
                         <p>60%</p>
@@ -113,27 +115,22 @@
                                 react 퍼센트
                             </div>
                         </div>
-                    </div>    
+                    </div> 
+                    <div id="scrapperWindow2"></div>   
                 </div>
             </div>
         </section>
-        <section id="more" class="box">
+        <section id="more" class="box on-mode">
             <div>
                 <div class="moniter-wrap">
                     <div id="a" class="moniter-section">
                         <div class="portfolio-file1">
-                            <a href="#">
+                            <a href="">
                                 <img src="./images/filebottom.svg" alt="">
                                 <img src="./images/1-1.faq_pc.jpg" alt="">
                                 <img src="./images/fileon.svg" alt="">
                             </a>
                         </div>
-                        <!-- <div class="portfolio-file2">
-                            <a href="#"><img src="./images/1-1.faq_pc.jpg" alt="portfolio-1"></a>
-                        </div>
-                        <div class="portfolio-file3">
-                            <a href="#"><img src="./images/1-1.faq_pc.jpg" alt="portfolio-1"></a>
-                        </div> -->
                     </div>
                     <div id="b" class="moniter-section">
                         <div>
@@ -170,10 +167,7 @@
     <footer>
         <p>footer</p>
     </footer>
-    <script src="./js/scrollAction2.js"></script>
-    <script src="./js/scrollAction3.js"></script>
-    <script src="./js/scrollAction4.js"></script>
-    <script src="./js/scrollAction5.js"></script>
-    <script src="./js/buttonAction.js"></script>
+    <!-- <script src="./js/scrollAction.js"></script> -->
+    <!-- <script src="./js/buttonAction.js"></script> -->
 </body>
 </html>

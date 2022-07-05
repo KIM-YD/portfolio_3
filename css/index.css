@@ -66,6 +66,8 @@ header {
   float: left;
   margin: 20vh 30px;
   opacity: 0.7;
+  position: absolute;
+  z-index: 2;
 }
 
 header a {
@@ -105,7 +107,9 @@ main #index img {
   width: 88%;
   position: absolute;
   bottom: 1.9vh;
-  left: 6%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
 }
 
 @-webkit-keyframes shining {
@@ -136,10 +140,10 @@ main #index .shine {
 }
 
 main #index .moon {
-  width: 180px;
+  width: 20vh;
   position: absolute;
   top: 15%;
-  left: 15%;
+  left: 300px;
 }
 
 main #index .star1 {
@@ -287,7 +291,7 @@ main section:nth-child(2) #about .window {
   left: 50%;
   display: table-cell;
   width: 1000px;
-  height: 50vh;
+  height: 400px;
   margin: auto;
   background-color: gray;
   -webkit-transform: translate(-50%, -50%);
@@ -344,6 +348,19 @@ main section:nth-child(2) #about .window .leg3 {
           transform: translate(-50%, 0%);
 }
 
+main section:nth-child(2) #about .window img {
+  position: absolute;
+  top: 80px;
+  width: 220px;
+  left: 90px;
+}
+
+main section:nth-child(2) #about .window #scrapperWindow1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 main section:nth-child(2) #skill {
   position: relative;
   width: 100%;
@@ -361,6 +378,7 @@ main section:nth-child(2) #skill .window {
   top: 50%;
   left: 50%;
   width: 1000px;
+  height: 400px;
   background-color: gray;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -369,7 +387,6 @@ main section:nth-child(2) #skill .window {
 main section:nth-child(2) #skill .window .com {
   position: relative;
   width: 33.3%;
-  background: url(../images/computer.svg) no-repeat center;
 }
 
 main section:nth-child(2) #skill .window .com h3 {
@@ -382,7 +399,7 @@ main section:nth-child(2) #skill .window .com h3 {
 
 main section:nth-child(2) #skill .window .com .logo {
   position: absolute;
-  top: 30%;
+  top: 60px;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -391,7 +408,7 @@ main section:nth-child(2) #skill .window .com .logo {
 main section:nth-child(2) #skill .window .com > p {
   color: white;
   position: absolute;
-  top: 42.5%;
+  top: 82px;
   left: 50%;
   -webkit-transform: translate(-37%, -50%);
           transform: translate(-37%, -50%);
@@ -403,7 +420,7 @@ main section:nth-child(2) #skill .window .com .loading-bar {
   background-color: gray;
   position: absolute;
   left: 35%;
-  top: 48%;
+  top: 92px;
 }
 
 main section:nth-child(2) #skill .window .com .loading-bar .percent {
@@ -443,14 +460,31 @@ main section:nth-child(2) #skill .window .com .loading-bar .react {
   background-color: #61dafb;
 }
 
+main section:nth-child(2) #skill .window .com .smallcom {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+main section:nth-child(2) #skill .window .com .bigcom {
+  width: 2500px;
+  z-index: 1;
+  left: -325%;
+  top: -63vh;
+}
+
+main section:nth-child(2) #skill .window #scrapperWindow2 {
+  position: absolute;
+  width: 100%;
+  height: 110%;
+}
+
 main #more {
   position: relative;
   width: 100%;
   height: 100vh;
   background-color: gray;
-  background: url(../images/computer_copy.svg) no-repeat;
-  background-position: 50% -110px;
-  background-size: 2500px;
   overflow: hidden;
   left: 100%;
 }
@@ -478,20 +512,24 @@ main #more .moniter-nav a {
   margin-left: 27px;
   padding: 10px;
   text-align: center;
+  position: absolute;
 }
 
 main #more .moniter-nav a:first-child {
   background-color: pink;
   margin-left: 43px;
   font-weight: 600;
+  top: 0;
 }
 
 main #more .moniter-nav a:nth-child(2) {
   background-color: yellow;
+  top: 60px;
 }
 
 main #more .moniter-nav a:last-child {
   background-color: greenyellow;
+  top: 120px;
 }
 
 main #more .moniter-nav a:hover {
@@ -547,52 +585,6 @@ main #more .portfolio-file1 a:hover img:nth-child(2) {
 main #more .portfolio-file1 a:hover img:last-child {
   -webkit-transform: skewY(15deg) scaleX(0.5) translate(-125px, 33px);
           transform: skewY(15deg) scaleX(0.5) translate(-125px, 33px);
-}
-
-main #more .portfolio-file2 {
-  float: left;
-  position: relative;
-  margin: 30px;
-  margin-left: 85px;
-  width: 220px;
-  height: 220px;
-  background: url(../images/file.svg) no-repeat;
-}
-
-main #more .portfolio-file2 > a {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-80%, -60%);
-          transform: translate(-80%, -60%);
-  font-size: 0;
-}
-
-main #more .portfolio-file2 > a img {
-  width: 150%;
-}
-
-main #more .portfolio-file3 {
-  float: left;
-  position: relative;
-  margin: 30px;
-  margin-left: 85px;
-  width: 220px;
-  height: 220px;
-  background: url(../images/file.svg) no-repeat;
-}
-
-main #more .portfolio-file3 > a {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-80%, -60%);
-          transform: translate(-80%, -60%);
-  font-size: 0;
-}
-
-main #more .portfolio-file3 > a img {
-  width: 150%;
 }
 
 main #more #a {
@@ -663,6 +655,18 @@ main #more #c div:last-child a {
 
 main #more #c div:last-child a:hover {
   font-weight: bold;
+}
+
+main .on-mode {
+  background: url(../images/computer_copy.svg) no-repeat;
+  background-position: 50% -13vh;
+  background-size: 2500px;
+}
+
+main .off-mode {
+  background: url(../images/computer.svg) no-repeat;
+  background-position: 50% -13vh;
+  background-size: 2500px;
 }
 
 footer {
