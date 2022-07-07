@@ -5,9 +5,6 @@
 
 ::-webkit-scrollbar {display: none;}
 
-html{
-    // scroll-behavior: smooth;
-}
 body{
     // height: 300vh;
     background-color: gray;
@@ -209,10 +206,29 @@ main {
                         top: 5%;
                         transform: translate( -50%, -0%);
                         &>p{
-                            margin-top: 20px;
-                            text-indent: 20px;
-                            font-size: 1rem;
-                            font-weight: 600;
+                            @keyframes wave1 {
+                                from{ transform: translate(-50%, -50%); } 
+                                to{ transform: translate(-65%, -50%); }
+                            }
+                            position: absolute;
+                            top: 50%;
+                            left: 60%;
+                            transform: translate(-50%, -50%);
+                            font-family: $board-font;
+                            text-align: center;
+                            font-size: 1.5rem;
+                            // font-weight: 600;
+                            // display: none;
+                            opacity: 0;
+                            &:first-child{
+                                opacity: 1;
+                                font-size: 2.5rem;
+                                // display: block;
+                                animation: wave1;
+                                animation-iteration-count: infinite;
+                                animation-direction: alternate;
+                                animation-duration: 0.5s;
+                            }
                         }
                     }
         
@@ -242,17 +258,26 @@ main {
                         top: 93%; left: 50%;
                         transform: translate(-50%, 0%);
                     }
+                    @keyframes wave2 {
+                        from{ transform: translateY(0px); } 
+                        to{ transform: translateY(-20px); } 
+                    }
                     img{
                         position: absolute;
                         top: 80px;
                         width: 220px;
                         left: 90px;
-                    }
-                    #scrapperWindow1{
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        // background-color: black;
+                        cursor: pointer;
+                        z-index: 1;
+                        animation: wave2;
+                        animation-iteration-count: infinite;
+                        animation-direction: alternate;
+                        animation-duration: 0.3s;
+                        &:hover{
+                            width: 240px;
+                            top: 60px;
+                            animation: none;
+                        }
                     }
                 }
             }
