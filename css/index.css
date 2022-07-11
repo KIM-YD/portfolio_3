@@ -83,9 +83,38 @@ header a {
   font-size: 1.5rem;
 }
 
+@-webkit-keyframes navani {
+  from {
+    background-color: transparent;
+    color: #fff9c5;
+  }
+  to {
+    background-color: #fff9c5;
+    color: #6f4b8d;
+  }
+}
+
+@keyframes navani {
+  from {
+    background-color: transparent;
+    color: #fff9c5;
+  }
+  to {
+    background-color: #fff9c5;
+    color: #6f4b8d;
+  }
+}
+
 header a:hover {
   font-weight: bold;
-  border-width: 2.5px;
+  -webkit-animation-name: navani;
+          animation-name: navani;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 main #index {
@@ -115,19 +144,19 @@ main #index img {
 
 @-webkit-keyframes shining {
   from {
-    opacity: 0;
+    opacity: 1;
   }
   to {
-    opacity: 1;
+    opacity: 0;
   }
 }
 
 @keyframes shining {
   from {
-    opacity: 0;
+    opacity: 1;
   }
   to {
-    opacity: 1;
+    opacity: 0;
   }
 }
 
@@ -682,7 +711,7 @@ main #more #c h4 {
   font-size: 4rem;
 }
 
-main #more #c div {
+main #more #c fieldset {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -692,43 +721,66 @@ main #more #c div {
   border-radius: 10px 10px;
 }
 
-main #more #c div p {
+main #more #c fieldset label {
   color: white;
   font-size: 1.5rem;
 }
 
-main #more #c div label {
-  font-size: 0;
-}
-
-main #more #c div input, main #more #c div textarea {
+main #more #c fieldset input, main #more #c fieldset textarea {
   border: none;
   width: 100%;
   background-color: transparent;
+  font-size: 1.2rem;
+  color: white;
 }
 
-main #more #c div textarea {
+main #more #c fieldset textarea {
   height: 85%;
 }
 
-main #more #c div:nth-child(4) {
+main #more #c fieldset:nth-child(4) {
   display: block;
   height: 200px;
 }
 
-main #more #c div:last-child {
-  border: none;
+main #more #c button {
   float: right;
-}
-
-main #more #c div:last-child a {
+  border: none;
+  background: none;
   text-decoration: none;
   color: white;
   font-size: 1.5rem;
 }
 
-main #more #c div:last-child a:hover {
+main #more #c button:hover {
   font-weight: bold;
+}
+
+main #more #c .thankyou_message {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+main #more #c .thankyou_message p {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+main #more #c .thankyou_message p:last-child {
+  background-color: white;
+  color: #61dafb;
+  width: 200px;
+  padding: 5px;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+main #more #c .thankyou_message p:last-child:hover {
+  font-size: 2.5rem;
+  width: 250px;
+  font-weight: 600;
 }
 
 main .on-mode {

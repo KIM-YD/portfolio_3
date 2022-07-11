@@ -70,10 +70,10 @@
       xhr.onreadystatechange = function() {
           if (xhr.readyState === 4 && xhr.status === 200) {
             form.reset();
-            // var formElements = form.querySelector(".form-elements")
-            // if (formElements) {
-            //   formElements.style.display = "none"; // hide form
-            // }
+            var formElements = form.querySelector(".form-elements")
+            if (formElements) {
+              formElements.style.display = "none"; // hide form
+            }
             var thankYouMessage = form.querySelector(".thankyou_message");
             if (thankYouMessage) {
               thankYouMessage.style.display = "block";
@@ -109,8 +109,10 @@
     }
 
     var modal1 = document.getElementsByClassName("thankyou_message")[0];
+    var formElements = document.querySelector(".form-elements");
 
-    modal1.querySelector("p").addEventListener("click",function(){
+    modal1.querySelectorAll("p").item(1).addEventListener("click",function(){
         modal1.style.display="none";
+        formElements.style.display = "block";
     }, false);
   })();

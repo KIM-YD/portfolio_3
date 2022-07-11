@@ -14,7 +14,7 @@
             <a href="#index">Index</a>
             <a href="#about">About</a>
             <a href="#skill">Skill</a>
-            <a href="#more">More</a>
+            <a href="#more">Works</a>
         </nav>
     </header>
     <main>
@@ -142,7 +142,7 @@
                         </div>
                     </div>
                     <div id="c" class="moniter-section">
-                        <h4>Contact Me</h4>
+                        <!-- <h4>Contact Me</h4>
                         <div>
                             <p>Name</p>
                             <input type="text" id="name" name="name" maxlength="100" value=""><label for="email1">직접 입력</label>
@@ -157,7 +157,40 @@
                         </div>
                         <div>
                             <a href="#">Send</a>
-                        </div>
+                        </div> -->
+                        <form class="gform" method="POST" action="https://script.google.com/macros/s/AKfycby9QcY9sOC3tcPvFktpzEPh2NIhOTAsx4W6F80SFKP1rTmEBxB-PWIRRNgXQfMe10Qzjg/exec">
+                            <div class="form-elements">
+                                <h4>Contact Me</h4>
+
+                                <fieldset class="pure-group">
+                                  <label for="name">Name</label>
+                                  <input id="name" name="name">
+                                </fieldset>
+                                
+                                <fieldset class="pure-group">
+                                    <label for="email">Email</label>
+                                    <input id="email" name="email" type="email" value="" required="">
+                                </fieldset>
+                                
+                                <fieldset class="pure-group">
+                                  <label for="message">Message</label>
+                                  <textarea id="message" name="message" maxlength="4000"></textarea>
+                                </fieldset>
+                          
+                                <fieldset class="pure-group honeypot-field" style="display: none;">
+                                  <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+                                  <input id="honeypot" type="text" name="honeypot" value="">
+                                </fieldset>
+                          
+                                <button class="button-success pure-button button-xlarge" style="cursor: pointer;">Send</button>
+                            </div>
+                
+                            <div class="thankyou_message">
+                                <!-- You can customize the thankyou message by editing the code below -->
+                                <p>송신완료!</p>
+                                <p>Close Button</p>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="moniter-nav">
@@ -171,5 +204,6 @@
     <footer>
         <p>footer</p>
     </footer>
+    <script data-cfasync="false" type="text/javascript" src="./js/form-submission-handler.js"></script>
 </body>
 </html>

@@ -35,6 +35,12 @@ window.addEventListener('DOMContentLoaded', function(){
         window.scrollTo(0, 0);
     });
 
+    async function delay() {
+        return new Promise((resolve, reject)=>{
+            setTimeout(()=>resolve(),0);
+        });
+    }
+
     function randomString(){
         let stringArr = ["편안한 밤 되세요. 영도의 포트폴리오에서."];
         let selectString = stringArr[0];
@@ -55,17 +61,39 @@ window.addEventListener('DOMContentLoaded', function(){
             scrollEvent = false;
         }
     }
-    dynamic(randomString());
 
-    function openingAnimetion() {
-        scrollEvent=true;
-        setTimeout(function(){
-            headNav.animate([{opacity: "0"},{opacity: "0.7"}],500);
-            headNav.style.opacity="0.7";
-            setTimeout(scrollEvent=false,500)
-        },2400);
-    }
-    openingAnimetion();
+    (function openingAnimetion() {
+        // setTimeout(() => {
+        //     scrollEvent = true;
+        //     dynamic(randomString());
+        // },0);
+        // setTimeout(() => {
+        //     headNav.animate([{opacity: "0"},{opacity: "0.7"}],500);
+        //     headNav.style.opacity="0.7";
+        // },1);
+        // setTimeout(scrollEvent=false,2);
+        new Promise((resolve, reject) => {
+            scrollEvent = true;
+            dynamic(randomString());
+            setTimeout(resolve(),0);
+        })
+        .then(() => {
+            return new Promise((resolve, reject) => {
+                headNav.animate([{opacity: "0"},{opacity: "0.7"}],500);
+                headNav.style.opacity="0.7";
+                setTimeout(resolve(),0);
+            });
+        })
+        .then(() => {
+            return new Promise((resolve, reject) => {
+                scrollEvent = false;
+                resolve();
+            })
+        })
+        .catch((err) => {
+            console.log('err', err);
+        })
+    })();
     
     section1.addEventListener("wheel", MouseWheelHandlerA, false);
     section2.addEventListener("wheel", MouseWheelHandlerB, false);
