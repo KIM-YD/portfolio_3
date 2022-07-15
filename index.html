@@ -9,7 +9,7 @@
     <script src="./js/index.js"></script>
 </head>
 <body>
-    <header id="navigation">
+    <header id="navigation" class="night-mode">
         <nav>
             <a href="#index">Index</a>
             <a href="#about">About</a>
@@ -18,7 +18,7 @@
         </nav>
     </header>
     <main>
-        <section id="index" class="box">
+        <section id="index" class="night">
             <div class="star1 shine">star</div>
             <div class="star2 shine">star</div>
             <div class="star3 shine">star</div>
@@ -28,13 +28,17 @@
             <div class="star7 shine">star</div>
             <div class="star8 shine">star</div>
             <img class="moon" src="./images/moon.png" alt="moon">
+            <div class="sun">sun</div>
+            <img class="cloud1" src="./images/cloud1.svg" alt="cloud1">
+            <img class="cloud2" src="./images/cloud2.svg" alt="cloud2">
             <img src="./images/window.svg" alt="window">
+            <img src="./images/window_light.png" alt="windowlight" style="opacity: 0.6;">
             <img src="./images/city.svg" alt="city">
             <div class="bottom">.</div>
-            <h1>편안한 밤 되세요. 영도의 포트폴리오에서.</h1>
+            <h1>좋은 하루 보내세요. 영도의 포트폴리오에서.</h1>
         </section>
         <section>
-            <div id="about" class="box">
+            <div id="about">
                 <h2>자기소개</h2>
                 <div class="window">
                     <div class="leg1"></div>
@@ -46,6 +50,7 @@
                         <p>재밌고 기억에남는 UI,</p> 
                         <p>편하고 간편한 UX를 만드는걸 목표로 하고있습니다.</p>
                         <p>제 스킬들을 보고 싶으면 스크롤 해주세요!</p>
+                        <p>스크롤!&gt;&gt;</p>
                     </div>
                     <img src="./images/person.svg" alt="person">
                 </div>
@@ -118,8 +123,7 @@
                                 react 퍼센트
                             </div>
                         </div>
-                    </div> 
-                    <div id="scrapperWindow2"></div>   
+                    </div>  
                 </div>
             </div>
         </section>
@@ -130,9 +134,23 @@
                     <div id="a" class="moniter-section">
                         <div class="portfolio-file1">
                             <a href="">
-                                <img src="./images/filebottom.svg" alt="">
-                                <img src="./images/1-1.faq_pc.jpg" alt="">
-                                <img src="./images/fileon.svg" alt="">
+                                <img src="./images/filebottom.svg" alt="file1">
+                                <img src="./images/1-1.faq_pc.jpg" alt="file2">
+                                <img src="./images/fileon.svg" alt="file3">
+                            </a>
+                        </div>
+                        <div class="portfolio-file1">
+                            <a href="">
+                                <img src="./images/filebottom.svg" alt="file1">
+                                <img src="./images/1-1.faq_pc.jpg" alt="file2">
+                                <img src="./images/fileon.svg" alt="file3">
+                            </a>
+                        </div>
+                        <div class="portfolio-file1">
+                            <a href="">
+                                <img src="./images/filebottom.svg" alt="file1">
+                                <img src="./images/1-1.faq_pc.jpg" alt="file2">
+                                <img src="./images/fileon.svg" alt="file3">
                             </a>
                         </div>
                     </div>
@@ -142,22 +160,6 @@
                         </div>
                     </div>
                     <div id="c" class="moniter-section">
-                        <!-- <h4>Contact Me</h4>
-                        <div>
-                            <p>Name</p>
-                            <input type="text" id="name" name="name" maxlength="100" value=""><label for="email1">직접 입력</label>
-                        </div>
-                        <div>
-                            <p>Email</p>
-                            <input type="text" id="email" name="email" maxlength="100" value=""><label for="email1">직접 입력</label>
-                        </div>
-                        <div>
-                            <p>Message</p>
-                            <textarea id="txt_content" name="content" maxlength="4000"></textarea>
-                        </div>
-                        <div>
-                            <a href="#">Send</a>
-                        </div> -->
                         <form class="gform" method="POST" action="https://script.google.com/macros/s/AKfycby9QcY9sOC3tcPvFktpzEPh2NIhOTAsx4W6F80SFKP1rTmEBxB-PWIRRNgXQfMe10Qzjg/exec">
                             <div class="form-elements">
                                 <h4>Contact Me</h4>
@@ -186,7 +188,6 @@
                             </div>
                 
                             <div class="thankyou_message">
-                                <!-- You can customize the thankyou message by editing the code below -->
                                 <p>송신완료!</p>
                                 <p>Close Button</p>
                             </div>
@@ -195,7 +196,7 @@
                 </div>
                 <div class="moniter-nav">
                     <a id="ab">PORTFOLIO</a>
-                    <a id="bb">ANIMATION</a>
+                    <a id="bb">JAVASCRIPT</a>
                     <a id="cb">CONTACT ME</a>
                 </div>
             </div>

@@ -60,7 +60,7 @@ body {
   background-color: gray;
 }
 
-header {
+.night-mode {
   width: 150px;
   border: 1.5px solid #fff9c5;
   border-radius: 75px;
@@ -71,7 +71,7 @@ header {
   z-index: 2;
 }
 
-header a {
+.night-mode a {
   border: 1.5px solid #fff9c5;
   border-radius: 50%;
   width: 120px;
@@ -83,7 +83,7 @@ header a {
   font-size: 1.5rem;
 }
 
-@-webkit-keyframes navani {
+@-webkit-keyframes navani1 {
   from {
     background-color: transparent;
     color: #fff9c5;
@@ -91,21 +91,77 @@ header a {
   to {
     background-color: #fff9c5;
     color: #6f4b8d;
+  }
+}
+
+@keyframes navani1 {
+  from {
+    background-color: transparent;
+    color: #fff9c5;
+  }
+  to {
+    background-color: #fff9c5;
+    color: #6f4b8d;
+  }
+}
+
+.night-mode a:hover {
+  font-weight: bold;
+  -webkit-animation-name: navani1;
+          animation-name: navani1;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.day-mode {
+  width: 150px;
+  border: 1.5px solid #769cc1;
+  border-radius: 75px;
+  float: left;
+  margin: 20vh 30px;
+  position: absolute;
+  z-index: 2;
+}
+
+.day-mode a {
+  border: 1.5px solid #769cc1;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 15px auto;
+  line-height: 120px;
+  text-align: center;
+  color: #769cc1;
+  font-size: 1.5rem;
+}
+
+@-webkit-keyframes navani {
+  from {
+    background-color: transparent;
+    color: #769cc1;
+  }
+  to {
+    background-color: #769cc1;
+    color: #badeec;
   }
 }
 
 @keyframes navani {
   from {
     background-color: transparent;
-    color: #fff9c5;
+    color: #769cc1;
   }
   to {
-    background-color: #fff9c5;
-    color: #6f4b8d;
+    background-color: #769cc1;
+    color: #badeec;
   }
 }
 
-header a:hover {
+.day-mode a:hover {
   font-weight: bold;
   -webkit-animation-name: navani;
           animation-name: navani;
@@ -117,20 +173,19 @@ header a:hover {
           animation-fill-mode: forwards;
 }
 
-main #index {
-  width: 100%;
-  height: 100vh;
+main .day {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, skyblue), to(white));
+  background: linear-gradient(skyblue 10%, white);
+}
+
+main .night {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #2f2039), to(#6f4b8d));
   background: linear-gradient(#2f2039 30%, #6f4b8d);
 }
 
-main #index .scrapper {
-  width: 90%;
-  height: 98vh;
-  background-color: rgba(153, 205, 50, 0.24);
-  position: absolute;
-  bottom: 1.9vh;
-  left: 5%;
+main #index {
+  width: 100%;
+  height: 100vh;
 }
 
 main #index img {
@@ -172,8 +227,56 @@ main #index .shine {
 main #index .moon {
   width: 20vh;
   position: absolute;
+  z-index: 2;
   top: 15%;
-  left: 300px;
+  left: 350px;
+  cursor: pointer;
+}
+
+main #index .moon:hover {
+  border-radius: 50%;
+  -webkit-animation: fullmoon;
+          animation: fullmoon;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fullmoon {
+  from {
+    background: transparent;
+  }
+  to {
+    background: #fff9c5;
+  }
+}
+
+@keyframes fullmoon {
+  from {
+    background: transparent;
+  }
+  to {
+    background: #fff9c5;
+  }
+}
+
+main #index .cloud1 {
+  display: none;
+  position: absolute;
+  width: 10%;
+  top: 10%;
+  left: 70%;
+}
+
+main #index .cloud2 {
+  display: none;
+  position: absolute;
+  width: 10%;
+  top: 20%;
+  left: 30%;
 }
 
 main #index .star1 {
@@ -296,6 +399,50 @@ main #index h1 {
   left: 39%;
 }
 
+main #index .sun {
+  display: none;
+  font-size: 0;
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  z-index: 1;
+  top: 15%;
+  left: 250px;
+  cursor: pointer;
+}
+
+main #index .sun:hover {
+  border-radius: 50%;
+  -webkit-animation: sunrise;
+          animation: sunrise;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes sunrise {
+  from {
+    background: white;
+  }
+  to {
+    background: orange;
+  }
+}
+
+@keyframes sunrise {
+  from {
+    background: white;
+  }
+  to {
+    background: orange;
+  }
+}
+
 main section:nth-child(2) {
   overflow-y: scroll;
   display: -webkit-box;
@@ -376,6 +523,28 @@ main section:nth-child(2) #about .window > .white-board > p {
   }
 }
 
+@-webkit-keyframes wave3 {
+  from {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  to {
+    -webkit-transform: translate(-25%, -50%);
+            transform: translate(-25%, -50%);
+  }
+}
+
+@keyframes wave3 {
+  from {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  to {
+    -webkit-transform: translate(-25%, -50%);
+            transform: translate(-25%, -50%);
+  }
+}
+
 main section:nth-child(2) #about .window > .white-board > p:first-child {
   opacity: 1;
   font-size: 2.5rem;
@@ -385,8 +554,20 @@ main section:nth-child(2) #about .window > .white-board > p:first-child {
           animation-iteration-count: infinite;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+}
+
+main section:nth-child(2) #about .window > .white-board > p:last-child {
+  font-size: 2.5rem;
+  -webkit-animation: wave3;
+          animation: wave3;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
 }
 
 main section:nth-child(2) #about .window .leg1 {
@@ -575,12 +756,6 @@ main section:nth-child(2) #skill .window .com .bigcom {
   z-index: 1;
   left: -325%;
   top: -63vh;
-}
-
-main section:nth-child(2) #skill .window #scrapperWindow2 {
-  position: absolute;
-  width: 100%;
-  height: 110%;
 }
 
 main #more {

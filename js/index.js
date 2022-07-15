@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', function(){
     });
 
     function randomString(){
-        let stringArr = ["편안한 밤 되세요. 영도의 포트폴리오에서."];
+        let stringArr = ["좋은 하루 보내세요. 영도의 포트폴리오에서."];
         let selectString = stringArr[0];
         let selectStringArr = selectString.split("");
 
@@ -57,15 +57,19 @@ window.addEventListener('DOMContentLoaded', function(){
     }
     dynamic(randomString());
 
-    function openingAnimetion() {
+
+    (function openingAnimetion() {
         scrollEvent=true;
+        var wlight = section1.querySelectorAll("img").item(4);
+        wlight.style.display="none";
         setTimeout(function(){
+            wlight.animate([{opacity: "0"},{opacity: "0.6"}],500);
             headNav.animate([{opacity: "0"},{opacity: "0.7"}],500);
+            wlight.style.display="block";
             headNav.style.opacity="0.7";
             setTimeout(scrollEvent=false,500)
         },2400);
-    }
-    openingAnimetion();
+    })()
     
     section1.addEventListener("wheel", MouseWheelHandlerA, false);
     section2.addEventListener("wheel", MouseWheelHandlerB, false);
@@ -77,17 +81,88 @@ window.addEventListener('DOMContentLoaded', function(){
     cbutton.addEventListener('click', buttonActionC, false);
 
     section2.querySelector("img").addEventListener('click', function(){
-        if(true&&ip!=4) {
-            section2.querySelectorAll("p").item(ip).style.opacity = "0";
-            ip++;
-            setTimeout(()=>{
-                section2.querySelectorAll("p").item(ip).animate([{opacity: "0"},{opacity: "1"}],500);
-                section2.querySelectorAll("p").item(ip).style.opacity = "1";
-            },0);
-        }else if(true&&ip==4) {
-            return false;
+        var buttonCk = false;
+        if(buttonCk == false){
+            if(true && ip != 5) {
+                buttonCk = true;
+                section2.querySelectorAll("p").item(ip).style.opacity = "0";
+                ip++;
+                setTimeout(() => {
+                    section2.querySelectorAll("p").item(ip).animate([{opacity: "0"},{opacity: "1"}],500);
+                    section2.querySelectorAll("p").item(ip).style.opacity = "1";
+                    setTimeout(buttonCk=false,0);
+                },0);
+            }else if(true&&ip==5) {
+                return false;
+            }
         }
     },true);
+
+
+    section1.getElementsByClassName("moon")[0].addEventListener('click', modeChange);
+    section1.getElementsByClassName("sun")[0].addEventListener('click', modeChange);
+
+    var dayTime = false;
+
+    function modeChange() {
+        if( dayTime ==false ) {
+            dayTime = true;
+            section1.animate([{opacity: "1"},{opacity: "0"}],999);
+            document.querySelector("body").style.background="#769cc1";
+            section1.style.opacity="0";
+            document.getElementById("navigation").style.opacity="0";
+            setTimeout(()=>{
+                section1.style.opacity="1";
+                document.getElementById("navigation").style.opacity="1";
+                document.querySelector("body").style.background="gray";
+                for(var i = 0; i<8; i++) {
+                    document.getElementsByClassName("shine")[i].style.display="none";
+                }
+                section1.getElementsByClassName("sun")[0].style.display="block";
+                section1.getElementsByClassName("moon")[0].style.display="none";
+                section1.querySelectorAll("img").item(1).style.display="block";
+                section1.querySelectorAll("img").item(2).style.display="block";
+                section1.querySelectorAll("img").item(3).setAttribute("src","./images/window2.png");
+                section1.querySelectorAll("img").item(4).setAttribute("src","./images/window2.png");
+                section1.querySelectorAll("img").item(5).setAttribute("src","./images/city2.png");
+                document.getElementById("navigation").classList.replace("night-mode", "day-mode");
+                document.getElementById("index").classList.replace("night", "day");
+                section1.querySelector("h1").style.color="white";
+                section1.getElementsByClassName("bottom")[0].style.background="#769cc1";
+                section2.style.background="#769cc1";
+                section2.getElementsByClassName("window")[0].style.background="#cbe9f5";
+                section3.style.background="#769cc1";
+            },1000);
+        }else if( dayTime ==true ) {
+            dayTime = false;
+            section1.animate([{opacity: "1"},{opacity: "0"}],999);
+            document.querySelector("body").style.background="#2f2039";
+            section1.style.opacity="0";
+            document.getElementById("navigation").style.opacity="0";
+            setTimeout(()=>{
+                section1.style.opacity="1";
+                document.getElementById("navigation").style.opacity="1";
+                document.querySelector("body").style.background="gray";
+                for(var i = 0; i<8; i++) {
+                    document.getElementsByClassName("shine")[i].style.display="block";
+                }
+                section1.getElementsByClassName("sun")[0].style.display="none";
+                section1.getElementsByClassName("moon")[0].style.display="block";
+                section1.querySelectorAll("img").item(1).style.display="none";
+                section1.querySelectorAll("img").item(2).style.display="none";
+                section1.querySelectorAll("img").item(3).setAttribute("src","./images/window.svg");
+                section1.querySelectorAll("img").item(4).setAttribute("src","./images/window_light.png");
+                section1.querySelectorAll("img").item(5).setAttribute("src","./images/city.svg");
+                document.getElementById("navigation").classList.replace("day-mode", "night-mode");
+                document.getElementById("index").classList.replace("day", "night");
+                section1.querySelector("h1").style.color="#fff9c5";
+                section1.getElementsByClassName("bottom")[0].style.background="black";
+                section2.style.background="black";
+                section2.getElementsByClassName("window")[0].style.background="gray";
+                section3.style.background="black";
+            },1000);
+        }
+    }
 
     function buttonActionA() {
         awindow.style.display="block";
@@ -151,14 +226,16 @@ window.addEventListener('DOMContentLoaded', function(){
             setTimeout(function() {
                 scrollEvent = false;
             },500);
-        }else if (delta < 0 && scrollEvent == false){
+        }else if (delta < 0 && scrollEvent == false && dayTime ==false){
             ip=0;
             scrollEvent = true;
             document.getElementsByClassName("window")[0].style.opacity="0";
             section2.querySelector("img").style.left = "-1000px";
             document.getElementById("navigation").animate([{opacity:0.7},{opacity:0, offset:0.8},{opacity:0.7}],{duration: 1500});
             section1.querySelector("h1").animate([{opacity:1},{opacity:0, offset:0.8},{opacity:1}],{duration: 2000});
-            for(var j=0; j<5; j++){
+            section1.querySelectorAll("img").item(4).animate([{opacity: 0.6},{opacity: 0}],1010);
+            // setTimeout(section1.querySelectorAll("img").item(2).style.display="none",0);
+            for(var j=0; j<6; j++){
                 section2.querySelectorAll("p").item(j).style.opacity = "0";
             }
             for(var i=0; i<8; i++){
@@ -166,10 +243,12 @@ window.addEventListener('DOMContentLoaded', function(){
             }
             section1.querySelectorAll("img").item(0).animate([{opacity:1},{opacity:0, offset:0.8},{opacity:0.7}],{duration: 1500});
             setTimeout(function() {
+                section1.querySelectorAll("img").item(0).style.display="none";
+                section1.querySelectorAll("img").item(4).style.display="none";
                 document.getElementById("navigation").style.display="none";
                 section1.querySelector("h1").style.display="none";
-                section1.querySelectorAll("img").item(1).animate([{transform:"translate(-50%, 0)",width: "88%"},{transform:"translate(-40%, 10%)", width: "5000%"}],500);
-                section1.querySelectorAll("img").item(2).animate([{transform:"translate(-50%, 0)",width: "88%"},{transform:"translate(-40%, 10%)", width: "5000%"}],500);
+                section1.querySelectorAll("img").item(3).animate([{transform:"translate(-50%, 0)",width: "88%"},{transform:"translate(-40%, 10%)", width: "5000%"}],500);
+                section1.querySelectorAll("img").item(5).animate([{transform:"translate(-50%, 0)",width: "88%"},{transform:"translate(-40%, 10%)", width: "5000%"}],500);
             },1000);
             setTimeout(function(){window.scrollTo(x1, y1)},1500);
             setTimeout(function() {
@@ -184,8 +263,55 @@ window.addEventListener('DOMContentLoaded', function(){
             },2500);
             setTimeout(function(){
                 section2.querySelectorAll("p").item(0).style.opacity="1";
+                section1.querySelectorAll("img").item(0).style.display="block";
+                section1.querySelectorAll("img").item(4).style.display="block";
                 scrollEvent = false;
             },4000);
+        }else if (delta < 0 && scrollEvent == false && dayTime == true){
+            ip = 0;
+            scrollEvent = true;
+            document.getElementsByClassName("window")[0].style.opacity="0";
+            section2.querySelector("img").style.left = "-1000px";
+            document.getElementById("navigation").animate([{opacity:0.7},{opacity:0, offset:0.8},{opacity:0.7}],{duration: 1500});
+            section1.querySelector("h1").animate([{opacity:1},{opacity:0, offset:0.8},{opacity:1}],{duration: 2000});
+            // setTimeout(section1.querySelectorAll("img").item(2).style.display="none",0);
+            for(var j=0; j<6; j++){
+                section2.querySelectorAll("p").item(j).style.opacity = "0";
+            }
+            section1.getElementsByClassName("sun")[0].animate([{opacity:1},{opacity:0, offset:0.8},{opacity:0.7}],{duration: 1500});
+            setTimeout(function() {
+                section1.getElementsByClassName("sun")[0].style.display="none";
+                section1.querySelectorAll("img").item(1).style.display="none";
+                section1.querySelectorAll("img").item(2).style.display="none";
+                section1.querySelectorAll("img").item(4).style.display="none";
+                document.getElementById("navigation").style.display="none";
+                section1.querySelector("h1").style.display="none";
+                section1.querySelectorAll("img").item(3).animate([{transform:"translate(-50%, 0)",width: "88%"},{transform:"translate(-40%, 10%)", width: "5000%"}],500);
+                section1.querySelectorAll("img").item(5).animate([{transform:"translate(-50%, 0)",width: "88%"},{transform:"translate(-40%, 10%)", width: "5000%"}],500);
+            }, 1000);
+
+            setTimeout(function(){window.scrollTo(x1, y1)},1500);
+
+            setTimeout(function() {
+                document.getElementsByClassName("window")[0].animate([{opacity:0},{opacity:1},{opacity:0}],500);
+                document.getElementsByClassName("window")[0].style.opacity="1";
+            }, 2000);
+
+            setTimeout(function() {
+                section2.querySelector("img").animate([{left: "-1000px"},{left: "90px"}],1000);
+                section2.querySelector("img").style.left = "90px";
+                document.getElementById("navigation").style.display="block";
+                section1.querySelector("h1").style.display="block";
+            }, 2500);
+
+            setTimeout(function() {
+                section2.querySelectorAll("p").item(0).style.opacity = "1";
+                section1.getElementsByClassName("sun")[0].style.display = "block";
+                section1.querySelectorAll("img").item(1).style.display = "block";
+                section1.querySelectorAll("img").item(2).style.display = "block";
+                section1.querySelectorAll("img").item(4).style.display = "block";
+                scrollEvent = false;
+            }, 4000);
         }
     }
     
@@ -211,7 +337,7 @@ window.addEventListener('DOMContentLoaded', function(){
             setTimeout(()=>{
                 ip=0;
                 section2.querySelectorAll("p").item(ip).style.opacity = "1";
-                for(var j=1; j<5; j++){
+                for(var j=1; j<6; j++){
                     section2.querySelectorAll("p").item(j).style.opacity = "0";
                 }
                 scrollEvent = false;
@@ -235,8 +361,7 @@ window.addEventListener('DOMContentLoaded', function(){
                 loPer[i].querySelector("p").style.opacity = "0";
                 document.getElementsByClassName("smallcom")[i].style.display = "none";
             }
-    
-            document.getElementById("scrapperWindow2").style.background="black";
+            section3.getElementsByClassName("window")[0].style.opacity="0";
             function tran() {
                 var speed = 10;
                 if (x1 == x2) {
@@ -249,16 +374,16 @@ window.addEventListener('DOMContentLoaded', function(){
             setTimeout(function() {
                 ip=0;
                 section2.querySelectorAll("p").item(ip).style.opacity = "1";
-                for(var j=1; j<5; j++){
+                for(var j=1; j<6; j++){
                     section2.querySelectorAll("p").item(j).style.opacity = "0";
                 }
                 for(var i=0; i<6; i++) {    
                     document.getElementsByClassName("smallcom")[i].style.display = "block";
                 }
-                document.getElementById("scrapperWindow2").animate([{opacity:1},{opacity:0}],500);
+                section3.getElementsByClassName("window")[0].animate([{opacity:0},{opacity:1}],500);
             },1000);
             setTimeout(function(){
-                document.getElementById("scrapperWindow2").style.background="transparent";
+                section3.getElementsByClassName("window")[0].style.opacity="1";
             },1700);
             setTimeout(function(){
                 for(var i = 0; i<6; i++) {
@@ -267,19 +392,22 @@ window.addEventListener('DOMContentLoaded', function(){
                     loPer[i].querySelector("p").animate([{opacity: "0"},{opacity: "1"}],500);
                 }
             },1800);
+
             setTimeout(function(){
-                for(var i = 0; i<6; i++) {
+                for(var i = 0; i < 6; i++) {
                     mLogo[i].style.opacity = "1";
                     loBar[i].style.opacity = "1";    
                     loPer[i].querySelector("p").style.opacity = "1";
                 }
-                loInBar[0].animate([{width: 0},{width: "90%"}],500);
-                loInBar[1].animate([{width: 0},{width: "85%"}],500);
-                loInBar[2].animate([{width: 0},{width: "90%"}],500);
-                loInBar[3].animate([{width: 0},{width: "90%"}],500);
-                loInBar[4].animate([{width: 0},{width: "70%"}],500);
-                loInBar[5].animate([{width: 0},{width: "60%"}],500);
-            },2300);
+
+                loInBar[0].animate([{width: 0}, {width: "90%"}], 500);
+                loInBar[1].animate([{width: 0}, {width: "85%"}], 500);
+                loInBar[2].animate([{width: 0}, {width: "90%"}], 500);
+                loInBar[3].animate([{width: 0}, {width: "90%"}], 500);
+                loInBar[4].animate([{width: 0}, {width: "70%"}], 500);
+                loInBar[5].animate([{width: 0}, {width: "60%"}], 500);
+            }, 2300);
+
             setTimeout(function(){
                 var count1 = 0;
                 var count2 = 0;
@@ -466,7 +594,8 @@ window.addEventListener('DOMContentLoaded', function(){
             setTimeout(()=>{
                 scrollEvent = false;
             },500);
-        }else if (delta < 0 && scrollEvent == false){
+
+        } else if (delta < 0 && scrollEvent == false){
             scrollEvent = true;
             window.scrollTo(x2, y2);
             setTimeout(()=>{
