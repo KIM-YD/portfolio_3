@@ -547,7 +547,7 @@ main {
             display: flex;
             padding: 20px;
         }
-        .portfolio-file1{
+        .portfolio-file{
             float: left;
             position: relative;
             margin: 30px;
@@ -568,6 +568,7 @@ main {
                 }
                 &:hover {
                     img{
+                        cursor: pointer;
                         position: absolute;
                         top: 0; left: 0;
                         &:nth-child(2) {
@@ -579,6 +580,30 @@ main {
                             transform: skewY(15deg) scaleX(0.5) translate( -125px, 33px);
                         }
                     }
+                }
+            }
+            .pf-contents{
+                display: none;
+                position: absolute;
+                z-index: 1;
+                background-color: #29abe1;
+                border: 1px solid #61dafb;
+                border-radius: 5px;
+                width: 900px;
+                height: 500px;
+                div{
+                    background-color: #61dafb;
+                    padding: 0.5rem;
+                    p{
+                        cursor: pointer;
+                        text-align: right;
+                        color: white;
+                        font-size: 1.5rem;
+                    }
+                }
+                img{
+                    margin: 50px;
+                    width: 400px;
                 }
             }
         }
