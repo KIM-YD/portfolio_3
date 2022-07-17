@@ -25,6 +25,9 @@ window.addEventListener('DOMContentLoaded', function(){
     //오프닝 애니메이션을 위한 첫 스타일 설정
     headNav.style.opacity = "0";
     target.innerHTML=" ";
+    //그 외 변수
+    var portfolio = section4.getElementsByClassName('portfolio-file');
+    var modal = false;
 
     //창크기 변환시 처음 부분으로
     window.addEventListener("resize", function(e) {
@@ -87,7 +90,7 @@ window.addEventListener('DOMContentLoaded', function(){
     section3.addEventListener("wheel", MouseWheelHandlerC, false);
     section4.addEventListener("wheel", MouseWheelHandlerD, false);
 
-    //day mode랑 night모드를 부르는 이벤트리스터
+    //day mode랑 night모드를 부르는 이벤트리스너
     section1.getElementsByClassName("moon")[0].addEventListener('click', modeChange);
     section1.getElementsByClassName("sun")[0].addEventListener('click', modeChange);
 
@@ -184,6 +187,14 @@ window.addEventListener('DOMContentLoaded', function(){
     cbutton.addEventListener('click', buttonActionC, false);
 
     //섹션4에서의 버튼 이벤트들 모음
+    document.getElementsByClassName("portfolio-file")[0].querySelectorAll("a").item(0).addEventListener('click', () => {
+        document.getElementsByClassName("pf-contents")[0].style.display = "block";
+    });
+    
+    document.getElementsByClassName("pf-contents")[0].querySelectorAll("p").item(0).addEventListener('click', () => {
+        document.getElementsByClassName("pf-contents")[0].style.display = "none";
+    });
+
     function buttonActionA() {
         awindow.style.display = "block";
         bwindow.style.display = "none";
@@ -225,6 +236,8 @@ window.addEventListener('DOMContentLoaded', function(){
         bbutton.style.fontWeight = "400";
         cbutton.style.fontWeight = "bold";
     };
+
+
     //여기까지 섹션4 버튼액션 모음
 
     //섹션1에서의 스크롤 액션

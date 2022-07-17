@@ -884,9 +884,14 @@ main #more .portfolio-file .pf-contents div {
 
 main #more .portfolio-file .pf-contents div p {
   cursor: pointer;
-  text-align: right;
+  z-index: 2;
   color: white;
+  width: 2rem;
   font-size: 1.5rem;
+}
+
+main #more .portfolio-file .pf-contents div p:hover {
+  font-weight: 600;
 }
 
 main #more .portfolio-file .pf-contents img {
