@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function() {
     //버튼
     var abutton = document.getElementById("ab");
     var bbutton = document.getElementById("bb");
@@ -80,8 +80,8 @@ window.addEventListener('DOMContentLoaded', function(){
             wlight.style.display = "block";
             headNav.style.opacity = "0.7";
 
-            setTimeout(scrollEvent=false, 500)
-        }, 2400);
+        }, 2500);
+        setTimeout(scrollEvent=false, 3000)
     })();
     
     //화면마다 불러올 함수가 다르므로 불러올 이벤트리스너 설정(트리거 행위는 마우스휠)
@@ -98,7 +98,7 @@ window.addEventListener('DOMContentLoaded', function(){
     function modeChange() {
         if(dayTime == false) {
             dayTime = true;
-            section1.animate([{opacity: "1"},{opacity: "0"}], 999);
+            section1.animate([{opacity: "1"},{opacity: "0"}], 1000);
             document.querySelector("body").style.background = "#769cc1";
             section1.style.opacity = "0";
             document.getElementById("navigation").style.opacity = "0";
@@ -122,6 +122,7 @@ window.addEventListener('DOMContentLoaded', function(){
                 document.getElementById("navigation").classList.replace("night-mode", "day-mode");
                 document.getElementById("index").classList.replace("night", "day");
                 section1.querySelector("h1").style.color = "#769cc1";
+                section1.querySelector("h1").classList.replace("night-font", "day-font");
                 section1.getElementsByClassName("bottom")[0].style.background = "#769cc1";
                 section2.style.background = "#769cc1";
                 section2.getElementsByClassName("window")[0].style.background = "#cbe9f5";
@@ -129,14 +130,14 @@ window.addEventListener('DOMContentLoaded', function(){
             }, 1000);
         }else if (dayTime == true) {
             dayTime = false;
-            section1.animate([{opacity: "1"},{opacity: "0"}], 999);
+            section1.animate([{opacity: "1"},{opacity: "0"}], 1000);
             document.querySelector("body").style.background = "#2f2039";
             section1.style.opacity = "0";
             document.getElementById("navigation").style.opacity = "0";
 
             setTimeout(() => {
                 section1.style.opacity = "1";
-                document.getElementById("navigation").style.opacity = "1";
+                document.getElementById("navigation").style.opacity = "0.7";
                 document.querySelector("body").style.background ="gray";
 
                 for(var i = 0; i<8; i++) {
@@ -153,6 +154,7 @@ window.addEventListener('DOMContentLoaded', function(){
                 document.getElementById("navigation").classList.replace("day-mode", "night-mode");
                 document.getElementById("index").classList.replace("day", "night");
                 section1.querySelector("h1").style.color = "black";
+                section1.querySelector("h1").classList.replace("day-font", "night-font");
                 section1.getElementsByClassName("bottom")[0].style.background = "black";
                 section2.style.background = "black";
                 section2.getElementsByClassName("window")[0].style.background = "gray";
@@ -257,7 +259,7 @@ window.addEventListener('DOMContentLoaded', function(){
     
         if(delta > 0 && scrollEvent == false) {
             scrollEvent = true;
-            window.scrollTo(0, 0);
+            setTimeout(window.scrollTo(0, 0),0);
 
             setTimeout(function() {
                 scrollEvent = false;
@@ -382,7 +384,7 @@ window.addEventListener('DOMContentLoaded', function(){
         if(delta > 0 && scrollEvent == false) {
             scrollEvent = true;
 
-            window.scrollTo(x1, y1);
+            setTimeout(window.scrollTo(x1, y1),0);
 
             setTimeout(() => {
                 ip=0;
@@ -584,8 +586,8 @@ window.addEventListener('DOMContentLoaded', function(){
                 loInBar[i].style.opacity = "0";
                 loPer[i].querySelector("p").style.opacity = "0";
             }
-    
-            setTimeout(function() {
+            
+            setTimeout(() => {
                 document.getElementsByClassName("moniter-wrap")[0].style.opacity = "0";
                 document.getElementById("ab").style.left = "10000px";
                 document.getElementById("bb").style.left = "10000px";
@@ -594,36 +596,35 @@ window.addEventListener('DOMContentLoaded', function(){
                 document.getElementById("more").classList.remove("on-mode");
                 document.getElementById("more").classList.add("off-mode");
                 document.getElementsByClassName("smallcom")[4].animate([{width: '100%', left: '0', top: '0'}, {width: '2500px', left: '-325%', top: '-63vh'}], 500);
-        
-                setTimeout(function() {
-                    document.getElementById("overcom").classList.add("bigcom");
-                    window.scrollTo(x2, y2);
-                    document.getElementById("overcom").classList.remove("bigcom");
-                    document.getElementById("overcom").classList.add("smallcom");
-                    document.getElementsByClassName("smallcom")[4].style.zIndex = "0";
-                }, 450);
+            }, 500);
 
-                setTimeout(function() {
-                    document.getElementById("more").classList.add("on-mode");
-                    document.getElementById("more").classList.remove("off-mode");
-                }, 550);
+            setTimeout(function() {
+                document.getElementById("overcom").classList.add("bigcom");
+                window.scrollTo(x2, y2);
+                document.getElementById("overcom").classList.remove("bigcom");
+                document.getElementById("overcom").classList.add("smallcom");
+                document.getElementsByClassName("smallcom")[4].style.zIndex = "0";
+            }, 950);
 
-                setTimeout(function() {
-                    document.getElementsByClassName("moniter-wrap")[0].animate([{opacity: 0}, {opacity: 1}], 1000);
-                    document.getElementsByClassName("moniter-wrap")[0].style.opacity = "1";
-                }, 600);
+            setTimeout(function() {
+                document.getElementById("more").classList.add("on-mode");
+                document.getElementById("more").classList.remove("off-mode");
+            }, 1050);
 
-                setTimeout(function() {
-                    document.getElementById("ab").animate([{left: "10000px"}, {left: "1000px"}], 1000);
-                    document.getElementById("bb").animate([{left: "10000px"}, {left: "1000px"}], 1000);
-                    document.getElementById("cb").animate([{left: "10000px"}, {left: "1000px"}], 1000);
-                    document.getElementById("ab").style.left = "1000px";
-                    document.getElementById("bb").style.left = "1000px";
-                    document.getElementById("cb").style.left = "1000px";
-                } ,500);
+            setTimeout(function() {
+                document.getElementById("ab").animate([{left: "10000px"}, {left: "1000px"}], 1000);
+                document.getElementById("bb").animate([{left: "10000px"}, {left: "1000px"}], 1000);
+                document.getElementById("cb").animate([{left: "10000px"}, {left: "1000px"}], 1000);
+                document.getElementById("ab").style.left = "1000px";
+                document.getElementById("bb").style.left = "1000px";
+                document.getElementById("cb").style.left = "1000px";
+            } ,1000);
 
+            setTimeout(function() {
+                document.getElementsByClassName("moniter-wrap")[0].animate([{opacity: 0}, {opacity: 1}], 1000);
+                document.getElementsByClassName("moniter-wrap")[0].style.opacity = "1";
                 scrollEvent = false;
-            },500);
+            }, 1100);
         }
     }
     
