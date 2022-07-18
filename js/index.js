@@ -121,7 +121,7 @@ window.addEventListener('DOMContentLoaded', function(){
                 section1.querySelectorAll("img").item(5).setAttribute("src", "./images/city2.png");
                 document.getElementById("navigation").classList.replace("night-mode", "day-mode");
                 document.getElementById("index").classList.replace("night", "day");
-                section1.querySelector("h1").style.color = "white";
+                section1.querySelector("h1").style.color = "#769cc1";
                 section1.getElementsByClassName("bottom")[0].style.background = "#769cc1";
                 section2.style.background = "#769cc1";
                 section2.getElementsByClassName("window")[0].style.background = "#cbe9f5";
@@ -152,7 +152,7 @@ window.addEventListener('DOMContentLoaded', function(){
                 section1.querySelectorAll("img").item(5).setAttribute("src", "./images/city.svg");
                 document.getElementById("navigation").classList.replace("day-mode", "night-mode");
                 document.getElementById("index").classList.replace("day", "night");
-                section1.querySelector("h1").style.color = "#fff9c5";
+                section1.querySelector("h1").style.color = "black";
                 section1.getElementsByClassName("bottom")[0].style.background = "black";
                 section2.style.background = "black";
                 section2.getElementsByClassName("window")[0].style.background = "gray";
@@ -262,106 +262,106 @@ window.addEventListener('DOMContentLoaded', function(){
             setTimeout(function() {
                 scrollEvent = false;
             },500);
-        }else if(delta < 0 && scrollEvent == false && dayTime ==false) {
-            ip = 0;
-            scrollEvent = true;
-            document.getElementsByClassName("window")[0].style.opacity = "0";
-            section2.querySelector("img").style.left = "-1000px";
-            document.getElementById("navigation").animate([{opacity: 0.7}, {opacity: 0, offset: 0.8}, {opacity: 0.7}], {duration: 1500});
-            section1.querySelector("h1").animate([{opacity:1}, {opacity: 0, offset: 0.8}, {opacity: 1}], {duration: 2000});
-            section1.querySelectorAll("img").item(4).animate([{opacity: 0.6}, {opacity: 0}], 1010);
-            
-            for(var j = 0; j < 6; j++) {
-                section2.querySelectorAll("p").item(j).style.opacity = "0";
+        }else if(delta < 0 && scrollEvent == false) {
+            if(dayTime == false) {
+                ip = 0;
+                scrollEvent = true;
+                document.getElementsByClassName("window")[0].style.opacity = "0";
+                section2.querySelector("img").style.left = "-1000px";
+                document.getElementById("navigation").animate([{opacity: 0.7}, {opacity: 0, offset: 0.8}, {opacity: 0.7}], {duration: 1500});
+                section1.querySelector("h1").animate([{opacity:1}, {opacity: 0, offset: 0.8}, {opacity: 1}], {duration: 2000});
+                section1.querySelectorAll("img").item(4).animate([{opacity: 0.6}, {opacity: 0}], 1010);
+                
+                for(var j = 0; j < 6; j++) {
+                    section2.querySelectorAll("p").item(j).style.opacity = "0";
+                }
+
+                for(var i = 0; i < 8; i++) {
+                    document.getElementsByClassName("shine")[i].animate([{opacity: 0.7}, {opacity: 0, offset: 0.8}, {opacity: 0.7}], {duration: 1500});
+                }
+
+                section1.querySelectorAll("img").item(0).animate([{opacity: 1}, {opacity: 0, offset: 0.8}, {opacity: 0.7}],{duration: 1500});
+
+                setTimeout(function() {
+                    section1.querySelectorAll("img").item(0).style.display = "none";
+                    section1.querySelectorAll("img").item(4).style.display = "none";
+                    document.getElementById("navigation").style.display = "none";
+                    section1.querySelector("h1").style.display = "none";
+                    section1.querySelectorAll("img").item(3).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
+                    section1.querySelectorAll("img").item(5).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
+                }, 1000);
+
+                setTimeout(function() {window.scrollTo(x1, y1)}, 1500);
+
+                setTimeout(function() {
+                    document.getElementsByClassName("window")[0].animate([{opacity: 0}, {opacity: 1}, {opacity: 0}], 500);
+                    document.getElementsByClassName("window")[0].style.opacity = "1";
+                }, 2000);
+
+                setTimeout(function() {
+                    section2.querySelector("img").animate([{left: "-1000px"}, {left: "90px"}], 1000);
+                    section2.querySelector("img").style.left = "90px";
+                    document.getElementById("navigation").style.display = "block";
+                    section1.querySelector("h1").style.display = "block";
+                },2500);
+                
+                setTimeout(function() {
+                    section2.querySelectorAll("p").item(0).style.opacity = "1";
+                    section1.querySelectorAll("img").item(0).style.display = "block";
+                    section1.querySelectorAll("img").item(4).style.display = "block";
+                    scrollEvent = false;
+                }, 4000);
+            }else if(dayTime == true) {
+                ip = 0;
+                scrollEvent = true;
+                document.getElementsByClassName("window")[0].style.opacity = "0";
+                section2.querySelector("img").style.left = "-1000px";
+                document.getElementById("navigation").animate([{opacity: 0.7}, {opacity: 0, offset: 0.8}, {opacity: 0.7}], {duration: 1500});
+                section1.querySelector("h1").animate([{opacity: 1}, {opacity: 0, offset: 0.8}, {opacity: 1}], {duration: 2000});
+                
+                for(var j = 0; j < 6; j++) {
+                    section2.querySelectorAll("p").item(j).style.opacity = "0";
+                }
+
+                section1.getElementsByClassName("sun")[0].animate([{opacity: 1}, {opacity: 0, offset: 0.8}, {opacity: 0.7}], {duration: 1500});
+
+                setTimeout(function() {
+                    section1.getElementsByClassName("sun")[0].style.display = "none";
+                    section1.querySelectorAll("img").item(1).style.display = "none";
+                    section1.querySelectorAll("img").item(2).style.display = "none";
+                    section1.querySelectorAll("img").item(4).style.display = "none";
+                    document.getElementById("navigation").style.display = "none";
+                    section1.querySelector("h1").style.display = "none";
+                    section1.querySelectorAll("img").item(3).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
+                    section1.querySelectorAll("img").item(5).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
+                }, 1000);
+
+                setTimeout(function() {window.scrollTo(x1, y1)}, 1500);
+
+                setTimeout(function() {
+                    document.getElementsByClassName("window")[0].animate([{opacity: 0}, {opacity: 1}, {opacity: 0}], 500);
+                    document.getElementsByClassName("window")[0].style.opacity = "1";
+                }, 2000);
+
+                setTimeout(function() {
+                    section2.querySelector("img").animate([{left: "-1000px"}, {left: "90px"}], 1000);
+                    section2.querySelector("img").style.left = "90px";
+                    document.getElementById("navigation").style.display = "block";
+                    section1.querySelector("h1").style.display = "block";
+                }, 2500);
+
+                setTimeout(function() {
+                    section2.querySelectorAll("p").item(0).style.opacity = "1";
+                    section1.getElementsByClassName("sun")[0].style.display = "block";
+                    section1.querySelectorAll("img").item(1).style.display = "block";
+                    section1.querySelectorAll("img").item(2).style.display = "block";
+                    section1.querySelectorAll("img").item(4).style.display = "block";
+                    scrollEvent = false;
+                }, 4000);
             }
-
-            for(var i = 0; i < 8; i++) {
-                document.getElementsByClassName("shine")[i].animate([{opacity: 0.7}, {opacity: 0, offset: 0.8}, {opacity: 0.7}], {duration: 1500});
-            }
-
-            section1.querySelectorAll("img").item(0).animate([{opacity: 1}, {opacity: 0, offset: 0.8}, {opacity: 0.7}],{duration: 1500});
-
-            setTimeout(function() {
-                section1.querySelectorAll("img").item(0).style.display = "none";
-                section1.querySelectorAll("img").item(4).style.display = "none";
-                document.getElementById("navigation").style.display = "none";
-                section1.querySelector("h1").style.display = "none";
-                section1.querySelectorAll("img").item(3).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
-                section1.querySelectorAll("img").item(5).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
-            }, 1000);
-
-            setTimeout(function() {window.scrollTo(x1, y1)}, 1500);
-
-            setTimeout(function() {
-                document.getElementsByClassName("window")[0].animate([{opacity: 0}, {opacity: 1}, {opacity: 0}], 500);
-                document.getElementsByClassName("window")[0].style.opacity = "1";
-            }, 2000);
-
-            setTimeout(function() {
-                section2.querySelector("img").animate([{left: "-1000px"}, {left: "90px"}], 1000);
-                section2.querySelector("img").style.left = "90px";
-                document.getElementById("navigation").style.display = "block";
-                section1.querySelector("h1").style.display = "block";
-            },2500);
-            
-            setTimeout(function() {
-                section2.querySelectorAll("p").item(0).style.opacity = "1";
-                section1.querySelectorAll("img").item(0).style.display = "block";
-                section1.querySelectorAll("img").item(4).style.display = "block";
-                scrollEvent = false;
-            }, 4000);
-
-        }else if(delta < 0 && scrollEvent == false && dayTime == true) {
-
-            ip = 0;
-            scrollEvent = true;
-            document.getElementsByClassName("window")[0].style.opacity = "0";
-            section2.querySelector("img").style.left = "-1000px";
-            document.getElementById("navigation").animate([{opacity: 0.7}, {opacity: 0, offset: 0.8}, {opacity: 0.7}], {duration: 1500});
-            section1.querySelector("h1").animate([{opacity: 1}, {opacity: 0, offset: 0.8}, {opacity: 1}], {duration: 2000});
-            
-            for(var j = 0; j < 6; j++) {
-                section2.querySelectorAll("p").item(j).style.opacity = "0";
-            }
-
-            section1.getElementsByClassName("sun")[0].animate([{opacity: 1}, {opacity: 0, offset: 0.8}, {opacity: 0.7}], {duration: 1500});
-
-            setTimeout(function() {
-                section1.getElementsByClassName("sun")[0].style.display = "none";
-                section1.querySelectorAll("img").item(1).style.display = "none";
-                section1.querySelectorAll("img").item(2).style.display = "none";
-                section1.querySelectorAll("img").item(4).style.display = "none";
-                document.getElementById("navigation").style.display = "none";
-                section1.querySelector("h1").style.display = "none";
-                section1.querySelectorAll("img").item(3).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
-                section1.querySelectorAll("img").item(5).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
-            }, 1000);
-
-            setTimeout(function() {window.scrollTo(x1, y1)}, 1500);
-
-            setTimeout(function() {
-                document.getElementsByClassName("window")[0].animate([{opacity: 0}, {opacity: 1}, {opacity: 0}], 500);
-                document.getElementsByClassName("window")[0].style.opacity = "1";
-            }, 2000);
-
-            setTimeout(function() {
-                section2.querySelector("img").animate([{left: "-1000px"}, {left: "90px"}], 1000);
-                section2.querySelector("img").style.left = "90px";
-                document.getElementById("navigation").style.display = "block";
-                section1.querySelector("h1").style.display = "block";
-            }, 2500);
-
-            setTimeout(function() {
-                section2.querySelectorAll("p").item(0).style.opacity = "1";
-                section1.getElementsByClassName("sun")[0].style.display = "block";
-                section1.querySelectorAll("img").item(1).style.display = "block";
-                section1.querySelectorAll("img").item(2).style.display = "block";
-                section1.querySelectorAll("img").item(4).style.display = "block";
-                scrollEvent = false;
-            }, 4000);
         }
     }
-    
+
     //섹션2에서의 스크롤 액션
     function MouseWheelHandlerB(e) {
         e.preventDefault();

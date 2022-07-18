@@ -22,7 +22,7 @@ img {
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 h2 {
@@ -392,11 +392,13 @@ main #index .bottom {
 }
 
 main #index h1 {
-  color: #fff9c5;
+  color: black;
+  -webkit-text-stroke: 1px #fff9c5;
   text-align: center;
   position: absolute;
-  top: 30vh;
-  left: 39%;
+  width: 33%;
+  left: 33%;
+  top: 40vh;
 }
 
 main #index .sun {
@@ -650,6 +652,7 @@ main section:nth-child(2) #skill {
   width: 100%;
   height: 100vh;
   background-color: black;
+  overflow: hidden;
 }
 
 main section:nth-child(2) #skill .window {
@@ -907,8 +910,38 @@ main #more #b {
   display: none;
 }
 
-main #more #b p {
-  display: none;
+main #more #b div a {
+  float: left;
+  margin: 0 20px;
+}
+
+main #more #b div a:first-child {
+  width: 300px;
+  background-color: #658dfa;
+  text-align: center;
+  padding: 100px 0;
+  border: 8px solid white;
+}
+
+main #more #b div a span {
+  display: contents;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+main #more #b div a:last-child {
+  background-color: lightgray;
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 100px 0;
+  width: 300px;
+  border: 8px solid white;
+}
+
+main #more #b div a:hover {
+  -webkit-box-shadow: 5px 5px 2px #333;
+          box-shadow: 5px 5px 2px #333;
 }
 
 main #more #c {
