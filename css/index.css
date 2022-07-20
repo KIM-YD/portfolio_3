@@ -263,6 +263,22 @@ main #index .moon:hover {
   }
 }
 
+main #index > p {
+  position: absolute;
+  top: 23%;
+  left: 480px;
+  color: #fff9c5;
+  font-size: 1.2rem;
+  -webkit-animation-name: shining;
+          animation-name: shining;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
 main #index .cloud1 {
   display: none;
   position: absolute;
@@ -392,7 +408,7 @@ main #index .bottom {
 }
 
 main #index h1 {
-  color: black;
+  color: #2f2039;
   text-align: center;
   position: absolute;
   width: 33%;

@@ -25,6 +25,7 @@ window.addEventListener('DOMContentLoaded', function() {
     //오프닝 애니메이션을 위한 첫 스타일 설정
     headNav.style.opacity = "0";
     target.innerHTML=" ";
+    section1.querySelectorAll("p").item(0).style.display = "none";
     //그 외 변수
     var portfolio = section4.getElementsByClassName('portfolio-file');
     var modal = false;
@@ -79,9 +80,13 @@ window.addEventListener('DOMContentLoaded', function() {
             headNav.animate([{opacity: "0"}, {opacity: "0.7"}], 500);
             wlight.style.display = "block";
             headNav.style.opacity = "0.7";
-
         }, 2500);
-        setTimeout(scrollEvent=false, 3000)
+
+        setTimeout(function() {
+            section1.querySelectorAll("p").item(0).style.display = "block"
+        }, 4000);
+
+        setTimeout(scrollEvent=false, 4100)
     })();
     
     //화면마다 불러올 함수가 다르므로 불러올 이벤트리스너 설정(트리거 행위는 마우스휠)
@@ -98,6 +103,7 @@ window.addEventListener('DOMContentLoaded', function() {
     function modeChange() {
         if(dayTime == false) {
             dayTime = true;
+            section1.querySelectorAll("p").item(0).style.display = "none";
             section1.animate([{opacity: "1"},{opacity: "0"}], 1000);
             document.querySelector("body").style.background = "#769cc1";
             section1.style.opacity = "0";
@@ -130,6 +136,7 @@ window.addEventListener('DOMContentLoaded', function() {
             }, 1000);
         }else if (dayTime == true) {
             dayTime = false;
+            section1.querySelectorAll("p").item(0).style.display = "none";
             section1.animate([{opacity: "1"},{opacity: "0"}], 1000);
             document.querySelector("body").style.background = "#2f2039";
             section1.style.opacity = "0";
@@ -574,6 +581,11 @@ window.addEventListener('DOMContentLoaded', function() {
             var loBar = document.getElementsByClassName("loading-bar");
             var loInBar = document.getElementsByClassName("percent");
             var loPer = document.getElementsByClassName("com");
+
+            awindow.style.display = "block";
+            bwindow.style.display = "none";
+            cwindow.style.display = "none";
+            awindow.getElementsByClassName("pf-contents")[0].style.display = "none";
     
             for(var i = 0; i < 6; i++) {
                 mLogo[i].animate([{opacity: '1'}, {opacity: '0'}], 500);

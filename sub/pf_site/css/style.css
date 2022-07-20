@@ -1,0 +1,740 @@
+@charset "utf-8";
+.body {
+    width: 100vw;
+}
+
+.wrap {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* header */
+header {
+    display: flex;
+    justify-content: space-around;
+    /* width: 100vw; */
+    height: 10vh;
+}
+
+header h1 {
+    display: none;
+}
+
+.main-menu {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+header img {
+    width: 4vh;
+    height: 4vh;
+    margin: 3vh auto;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.logo-image img {
+    width: 7vh;
+    height: 7vh;
+    margin: 1.5vh auto;
+}
+
+.main-menu ul{
+    display: none;
+    align-items: center;
+    font-family: 'noto san KR';
+    font-size: 20px;
+    height: 2vh;
+    margin: 4vh auto;
+}
+
+.main-menu ul li {
+    display: none;
+}
+
+.main-menu ul li:hover{
+    font-weight: 600;
+}
+
+.main-menu input {
+    display: none;
+}
+
+@media all and (min-width: 1024px) {
+    .main-menu ul {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+    }
+
+    .main-menu ul li {
+        display: block;
+        margin: 0 20px;
+    }
+
+    header img {
+        display: none;
+    }
+
+    .logo-image img {
+        display: block;
+        width: 7vh;
+        height: 7vh;
+        margin: 1.5vh auto;
+    }
+
+    .main-menu input {
+        display: block;
+        border: 1px solid gray;
+        width: 180px;
+        height: 3vh;
+        margin: 3.5vh auto;
+    }
+}
+
+/* main */
+/* article */
+.banner h2 {
+    display: none;
+}
+
+.banner {
+    background-image: url(../images/city_banner_2.jpg) ;
+    background-size: cover;
+    height: 90vh; width: 100%;
+}
+
+
+
+.banner-slg {
+    right: 0;
+    padding-top: 45%;
+    text-align: right;
+}
+
+.banner-slg strong {
+    font: bold 100px 'noto san KR';
+    color: white;
+}
+
+.banner-slg2 {
+    position: absolute;
+    right: 0;
+    display: flex;
+    
+}
+
+.banner-slg3 strong{
+    display: block;
+    font-size: 50px;
+    margin-bottom: -10px;
+}
+
+.banner-slg3 strong:first-child {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+}
+
+.brand-btn {
+    position: absolute;
+    border: 1px solid white;
+    padding: 10px 50px;
+    bottom: 1vh;
+    cursor: pointer;
+}
+
+@keyframes light {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.brand-btn:hover {
+    animation-name: light;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+}
+
+.brand-btn a {
+    font: 300 18px "roboto";
+    color: white;
+}
+
+@media all and (min-width: 768px) {
+    article .wrap {
+        position: relative;
+    }
+}
+
+/* sec1 */
+.business {
+    width: 100%;
+    height: 100vh;
+}
+
+.business .wrapper{
+    position: relative;
+    height: 100%;
+    font-family: 'noto san KR';
+    color: white;
+}
+
+.business h2 {
+    display: none;
+}
+
+.img-box {
+    position: relative;
+    height: 33.3vh;
+    background-color: rgba(255, 0, 0, 0.151);
+    text-align: right;
+    border-bottom: 3px solid white;
+}
+
+.img-box:nth-child(even) {
+    text-align: left;
+}
+
+.small-text {
+    position: absolute;
+    right: 0; top: 55%;
+    /* width: 66%; */
+}
+
+.small-text:nth-child(odd) {
+    left: 0;
+}
+
+.small-text p {
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.small-text p:last-child {
+    border-bottom: 2px solid white;
+}
+
+.img-box h3 {
+    position: absolute;
+    right: 0; top: 70%;
+    font-size: 70px;
+}
+
+.img-box:nth-child(even) h3 {
+    left: 0;
+}
+
+.img-box:nth-child(1) {
+    background: url(../images/build.png) no-repeat center;
+    background-size: cover;
+}
+
+.img-box:nth-child(2) {
+    background: url(../images/house.png) no-repeat center;
+    background-size: cover;
+}
+
+.img-box:last-child {
+    background: url(../images/big.png) no-repeat center;
+    background-size: cover;
+}
+
+@media all and (min-width: 1024px) {
+    .business {
+        display: flex;
+    }
+
+    .business .wrapper {
+        display: flex;
+    }
+
+    .business h2 {
+        display: block;
+        margin-top: 51.5vh;
+        width: 100%;
+        position: absolute;
+        height: 5rem;
+        font-size: 0rem;
+        border-bottom: 3px solid lightgray;
+        text-indent: -80vw;
+    }
+
+    .img-box {
+        position: absolute;
+        background-color: rgba(0, 0, 255, 0.151);
+        width: 24%; height: 80%;
+        top: 10%;
+        text-align: right;
+    }
+
+    .img-box:first-child{
+        left: 0;
+    }
+    
+    .img-box:nth-child(2){
+        left: 38%;    
+    }
+    
+    .img-box:last-child{
+        right: 0;
+    }
+
+    .img-box h3 {
+        top: 62%;
+    }
+}
+
+/* sec2 */
+.smile {
+    height: 100vh;
+    background-color: #6fd561;
+    display: flex;
+    /* display: none; */
+    position: relative;
+}
+
+.smile h2 {
+    display: none;
+}
+
+.smile .wrapper {
+    position: relative;
+}
+
+.smile h3 {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    font-family: 'noto san KR';
+    text-align: center;
+    line-height: 50vh;
+    display: none;
+}
+
+.bus-part1 {
+    position: absolute;
+    left: 0; top: 2vh;
+    background-color: #6fd561;
+    width: 30vh;
+    height: 30vh;
+    border: 7px solid white;
+}
+
+.bus-part1:hover {
+    width: 31vh;
+    height: 31vh;
+}
+
+.bus-part1 div {
+    width: 100%; height: 100%;
+    background: url(../images/Untitled-1.svg) no-repeat center;
+    background-size: 70%;
+}
+
+.bus-part2 {
+    position: absolute;
+    left: 0; top: 68vh;
+    position: relative;
+    background-color: #6fd561;
+    width: 30vh;
+    height: 30vh;
+    border: 7px solid white;
+}
+
+.bus-part2:hover {
+    width: 31vh;
+    height: 31vh;
+}
+
+.bus-part2 div {
+    width: 100%; height: 100%;
+    background: url(../images/Untitled-2.svg) no-repeat center;
+    background-size: 70%;
+}
+
+.bus-part3 {
+    position: absolute;
+    right: 0; top: 2vh;
+    background-color: #6fd561;
+    width: 30vh;
+    height: 30vh;
+    border: 7px solid white;
+}
+
+.bus-part3:hover {
+    width: 31vh;
+    height: 31vh;
+}
+
+.bus-part3 div {
+    width: 100%; height: 100%;
+    background: url(../images/Untitled-3.svg) no-repeat center;
+    background-size: 70%;
+}
+
+.bus-part4 {
+    position: absolute;
+    right: 50%; top: 34vh;
+    transform: translate(50%, 0);
+    background-color: #6fd561;
+    width: 30vh;
+    height: 30vh;
+    border: 7px solid white;
+}
+
+.bus-part4:hover {
+    width: 31vh;
+    height: 31vh;
+}
+
+.bus-part4 div {
+    width: 100%; height: 100%;
+    background: url(../images/Untitled-4.svg) no-repeat center;
+    background-size: 70%;
+}
+
+.bus-part5 {
+    position: absolute;
+    right: 0; top: 68vh;
+    background-color: #6fd561;
+    width: 30vh;
+    height: 30vh;
+    border: 7px solid white;
+}
+
+.bus-part5:hover {
+    width: 31vh;
+    height: 31vh;
+}
+
+.bus-part5 div {
+    width: 100%; height: 100%;
+    background: url(../images/Untitled-5.svg) no-repeat center;
+    background-size: 70%;
+}
+
+@media all and (min-width: 1024px) {
+    .smile {
+        background: url(../images/section2.jpg) no-repeat center;
+        background-size: cover;
+    }
+
+    .smile h3 {
+        display: block;
+    }
+
+    .bus-part4 {
+        right: 0;
+        transform: translate(0, 0);
+    }
+}
+
+/* sec3 */
+.news {
+    height: 100vh;
+    background-color: white;
+}
+
+.news h2 {
+    display: none;
+}
+
+.news .main-contents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 5vh;
+}
+
+.news .contents-box {
+    width: 30vh;
+    height: 30vh;
+    margin-bottom: 10vh;
+    cursor: pointer;
+    /* background-color: aqua; */
+}
+
+.news .img_box {
+    width: 100%;
+    height: 100%;
+    /* background-color: blueviolet; */
+}
+
+.news .img_box h3 {
+    display: none;
+}
+
+.news p {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'noto san KR';
+}
+
+.news time {
+    font-family: 'noto san KR';
+}
+
+.news .contents-box:first-child .img_box {
+    background-image: url(../images/sec_img01.png);
+    background-size: cover;
+}
+
+.news .contents-box:nth-child(2) .img_box {
+    background-image: url(../images/sec_img02.jpg);
+    background-size: cover;
+}
+
+.news .contents-box:nth-child(3) .img_box {
+    background-image: url(../images/sec_img03.jpg);
+    background-size: cover;
+}
+
+.news .contents-box:last-child .img_box {
+    background-image: url(../images/sec_img04.jpg);
+    background-size: cover;
+}
+
+.more-btn {
+    float: right;
+    margin-top: 5vh;
+    width: 250px;
+    border: 1px solid gray;
+}
+
+@keyframes more {
+    from { transform: scale(1.2); }
+    to { transform: scale(1); }
+}
+
+.more-btn:hover {
+    animation-name: more ;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+}
+
+.more-btn a {
+    font-size: 1.2rem;
+    margin: 18px auto;
+    width: 240px;
+    text-align: center;
+}
+
+.more-btn a:hover {
+    font-weight: 600;
+}
+
+@media all and (min-width: 1024px) {
+    .news {
+        background: url(../images/section-3.jpg) no-repeat center;
+        background-size: cover;
+    }
+
+    .news .main-contents {
+        padding-top: 35vh;
+    }
+
+    .more-btn {
+        margin-top: 10vh;
+    }
+}
+
+/* sec3 */
+.others {
+    height: 30vh;
+    background-color: #ededee;
+}
+
+.others h2 {
+    display: none;
+}
+
+.others h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: 'noto san KR';
+}
+
+.others p {
+    font-size: 1rem;
+    font-family: 'noto san KR';
+}
+
+.other-box1 {
+    width: 100%;
+    /* padding: 3vw; */
+    padding-bottom: 0;
+    height: 10vh;
+    background-color: #da9b80;
+}
+
+.other-box1>div {
+    width: 100%;
+    height: 100%;
+    /* background-size: cover; */
+}
+
+.box-contents {
+    display: flex;
+    justify-content: space-around;
+    padding: 3vw;
+    width: 100%;
+}
+
+.box-contents img {
+    display: none;
+}
+
+.other-box2 {
+    width: 100%;
+    /* padding: 3vw; */
+    padding-bottom: 0;
+    padding-right: 0;
+    height: 10vh;
+    background-color: #87a0cc;
+    /* height: 40vh; */
+}
+
+.other-box2>div {
+    width: 100%;
+    height: 100%;
+    /* background-size: cover; */
+}
+
+.other-box3 {
+    width: 100%;
+    /* padding: 3vw; */
+    height: 10vh;
+    background-color: #9abf56;
+    /* height: 40vh; */
+}
+
+.other-box3>h3 {
+    height: 2vh;
+}
+
+.other-box3>div {
+    width: 100%;
+    height: 100%;
+}
+
+@media all and (min-width: 1024px) {
+    .others {
+        height: 70vh;
+    }
+
+    .others .wrapper {
+        display: flex;
+    }
+
+    .section-box:first-child {
+        width: 33%;
+    }
+
+    .section-box:last-child {
+        width: 67%;
+    }
+
+    .box-contents {
+        display: block;
+    }
+
+    .box-contents img {
+        display: block;
+    }
+
+    .other-box1 {
+        height: 70vh;
+    }
+    
+    .other-box1>div {
+        background: url(../images/apart.png) no-repeat bottom;
+        background-position: 50% 100%;
+    }
+
+    .other-box2 {
+        height: 35vh;
+    }
+
+    .other-box2>div {
+        background: url(../images/people.png) no-repeat bottom;
+        background-position: 100% 100%;
+    }
+    
+    .other-box3 {
+        height: 35vh;
+    }
+
+    .other-box3>div {
+        background: url(../images/mic.png) no-repeat bottom;
+        background-size: 50%;
+        background-position: 10% 0;
+    }
+
+    .other-box3 .box-contents {
+        padding-left: 70%;
+    }
+}
+
+/* footer */
+footer {
+    height: 70vh;
+    background: linear-gradient(#111111, #363636);
+    color: gray;
+}
+
+footer h2 {
+    display: none;
+}
+
+footer a {
+    color: white;
+    margin: 2rem 3rem;
+    opacity: 0.7;
+    /* display: block; */
+}
+
+footer a:hover {
+    font-weight: 600;
+    opacity: 1;
+}
+
+footer form {
+    display: inline;
+    /* display: block; */
+    float: right;
+    margin: 2rem 1vw;
+}
+
+footer form select {
+    width: 200px;
+    height: 30px;
+    color: gray;
+    background: transparent;
+}
+
+footer address {
+    border-top: 1px solid gray;
+    line-height: 2rem;
+    padding: 1vw 3vw;
+}
+
+footer img {
+    display: none;
+}
+
+@media all and (min-width: 1024px) {
+    footer {
+        height: 30vh;
+    }
+}
+
+
+
