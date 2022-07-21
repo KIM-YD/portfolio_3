@@ -1,67 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="ko">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
+<head>
     <style>
-        .thankyou_message{
-            width: 500px;
-            height: 500px;
-            overflow: scroll;
-            background-color: bisque;
-            z-index: 1;
-            position: absolute;
-            top: 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .thankyou_message>p{
+
+        body {
+            background-color: #1f1f1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            width: 287px;
+            border: 1px solid #333;
+            background-color: #ccc;
+            padding: 5px;
+        }
+
+        .calculator form {
+            display: grid;
+            grid-template-columns: repeat(4, 65px);
+            grid-auto-rows: 65px;
+            grid-gap: 5px;
+        }
+
+        .calculator form input {
+            border: 2px solid #333;
             cursor: pointer;
+            font-size: 19px;
+        }
+
+        .calculator form input:hover {
+            box-shadow: 1px 1px 2px #333;
+        }
+
+        .calculator form .clear {
+            background-color: #ed4848;
+        }
+
+        .calculator form .operator {
+            background-color: orange;
+        }
+
+        .calculator form .dot {
+            background-color: green;
+        }
+
+        .calculator form input[type='text'] {
+            grid-column: span 4;
+            text-align: right;
+            padding: 0 10px;
+        }
+
+        .calculator form .result {
+            grid-column: span 2;
+        }
+
+        .calculator form .back {
+            grid-column: span 4;
+            background-color: blue;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <div class="box" style="background: skyblue;">
-        <form class="gform" method="POST" action="https://script.google.com/macros/s/AKfycby9QcY9sOC3tcPvFktpzEPh2NIhOTAsx4W6F80SFKP1rTmEBxB-PWIRRNgXQfMe10Qzjg/exec">
-            <div class="form-elements">
-                <fieldset class="pure-group">
-                  <label for="name">Name: </label>
-                  <input id="name" name="name" placeholder="What your Mom calls you">
-                </fieldset>
-          
-                <fieldset class="pure-group">
-                  <label for="message">Message: </label>
-                  <textarea id="message" name="message" rows="10" placeholder="Tell us what's on your mind..."></textarea>
-                </fieldset>
-          
-                <fieldset class="pure-group">
-                  <label for="email"><em>Your</em> Email Address:</label>
-                  <input id="email" name="email" type="email" value="" required="" placeholder="your.name@email.com">
-                </fieldset>
-          
-                <fieldset class="pure-group">
-                  <label for="color">Favourite Color: </label>
-                  <input id="color" name="color" placeholder="green">
-                </fieldset>
-          
-                <fieldset class="pure-group honeypot-field">
-                  <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
-                  <input id="honeypot" type="text" name="honeypot" value="">
-                </fieldset>
-          
-                <button class="button-success pure-button button-xlarge">
-                  <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
-            </div>
-
-            <div style="display:none" class="thankyou_message">
-                <!-- You can customize the thankyou message by editing the code below -->
-                <h2><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
-                <p>close</p>
-            </div>
+    <div class="calculator">
+        <form name="forms">
+            <input type="text" name="output" value="" readonly>
+            <input type="button" class="clear" value="c" onclick="resetBtn()">
+            <input type="button" class="operator" value="(" onclick="readloopLeft()">
+            <input type="button" class="operator" value=")" onclick="readloopRight()">
+            <input type="button" class="operator" value="/" onclick="readButton('/')">
+            <input type="button" class="num" value="1" onclick="readButton(valueReader(5))">
+            <input type="button" class="num" value="2" onclick="readButton(valueReader(6))">
+            <input type="button" class="num" value="3" onclick="readButton(valueReader(7))">
+            <input type="button" class="operator" value="x" onclick="readButton('*')">
+            <input type="button" class="num" value="4" onclick="readButton(valueReader(9))">
+            <input type="button" class="num" value="5" onclick="readButton(valueReader(10))">
+            <input type="button" class="num" value="6" onclick="readButton(valueReader(11))">
+            <input type="button" class="operator" value="+" onclick="readButton('+')">
+            <input type="button" class="num" value="7" onclick="readButton(valueReader(13))">
+            <input type="button" class="num" value="8" onclick="readButton(valueReader(14))">
+            <input type="button" class="num" value="9" onclick="readButton(valueReader(15))">
+            <input type="button" class="operator" value="-" onclick="readButton('-')">
+            <input type="button" class="dot" value="." onclick="readButton(valueReader(17))">
+            <input type="button" class="num" value="0" onclick="readButton(valueReader(18))">
+            <input type="button" class="operator result" value="=" onclick="calculate()">
+            <!-- <input type="button" class="back" value="Back Page" onclick="backPage()"> -->
         </form>
     </div>
-    <div class="box"></div>
-    <div class="box" style="background: green;"></div>
-    <script data-cfasync="false" type="text/javascript" src="./js/form-submission-handler.js"></script>
 </body>
+<script>
+    var numCk = false;
+    var loopChk = 0;
+    var arr = [];
+    var dotBtnVal = document.getElementsByClassName("dot")[0];
+    var opBtnVal = document.getElementsByClassName("operator");
+
+    for(var i = 0; i < 20; i++) {
+        arr[i] = document.querySelectorAll("input").item(i).value;
+    }
+
+    function valueReader(x) {
+        return arr[x];
+    }
+
+    dotBtnVal.addEventListener('click', () => {
+        dotBtnVal.value = "";
+        arr[17] = document.querySelectorAll("input").item(17).value;
+    });
+
+    opBtnVal[0].addEventListener('click', dotValCh);
+    opBtnVal[1].addEventListener('click', dotValCh);
+    opBtnVal[2].addEventListener('click', dotValCh);
+    opBtnVal[3].addEventListener('click', dotValCh);
+    opBtnVal[4].addEventListener('click', dotValCh);
+    opBtnVal[5].addEventListener('click', dotValCh);
+    
+    
+
+    function dotValCh() {
+        dotBtnVal.value = ".";
+        arr[17] = document.querySelectorAll("input").item(17).value;
+    }
+
+    function readloopLeft() {
+        if(numCk == false) {
+            document.forms.output.value += "(";
+            loopChk += 1;
+        }else {
+            document.forms.output.value += "";
+        }
+    }
+
+    function readloopRight() {
+        if(numCk == true && loopChk != 0) {
+            document.forms.output.value += ")";
+            loopChk -= 1;
+        }else {
+            document.forms.output.value += "";
+        }
+    }
+
+    function readButton(char) {
+        if(numCk == false) {
+            if(isNaN(char) == true) {
+            }else {
+                document.forms.output.value += char;
+            }
+        }else {
+            document.forms.output.value += char;
+        }
+
+        if(isNaN(char) == true) {
+            numCk = false;
+        }else {
+            numCk = true;
+        }
+        console.log(numCk);
+    }
+
+    function calculate() {
+        document.forms.output.value = eval(document.forms.output.value);
+    }
+
+    function resetBtn() {
+        document.forms.output.value = "";
+        numCk = false;
+        loopChk = 0;
+        dotBtnVal.value = ".";
+        arr[17] = document.querySelectorAll("input").item(17).value;
+    }
+
+    // function backPage() {
+    //     history.back();
+    // }
+</script>
 </html>

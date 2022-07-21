@@ -59,8 +59,9 @@ window.addEventListener('DOMContentLoaded', function() {
             scrollEvent = true;
             target.textContent += randomArr.shift();
             
-            setTimeout(function(){
+            var dyanimation = setTimeout(function(){
                 dynamic(randomArr);
+                clearTimeout(dyanimation);
             }, 100);
         }else {
             scrollEvent = false;
@@ -75,18 +76,23 @@ window.addEventListener('DOMContentLoaded', function() {
 
         wlight.style.display = "none";
 
-        setTimeout(function(){
+        var opAni1 = setTimeout(function(){
             wlight.animate([{opacity: "0"}, {opacity: "0.6"}], 500);
             headNav.animate([{opacity: "0"}, {opacity: "0.7"}], 500);
             wlight.style.display = "block";
             headNav.style.opacity = "0.7";
+            clearTimeout(opAni1);
         }, 2500);
 
-        setTimeout(function() {
-            section1.querySelectorAll("p").item(0).style.display = "block"
+        var opAni2 = setTimeout(function() {
+            section1.querySelectorAll("p").item(0).style.display = "block";
+            clearTimeout(opAni2);
         }, 4000);
 
-        setTimeout(scrollEvent=false, 4100)
+        var opAni3 = setTimeout(() => {
+            scrollEvent=false;
+            clearTimeout(opAni3);
+        }, 4100)
     })();
     
     //화면마다 불러올 함수가 다르므로 불러올 이벤트리스너 설정(트리거 행위는 마우스휠)
@@ -109,7 +115,7 @@ window.addEventListener('DOMContentLoaded', function() {
             section1.style.opacity = "0";
             document.getElementById("navigation").style.opacity = "0";
 
-            setTimeout(() => {
+            var mcAni1 = setTimeout(() => {
                 section1.style.opacity = "1";
                 document.getElementById("navigation").style.opacity = "1";
                 document.querySelector("body").style.background = "gray";
@@ -122,9 +128,9 @@ window.addEventListener('DOMContentLoaded', function() {
                 section1.getElementsByClassName("moon")[0].style.display = "none";
                 section1.querySelectorAll("img").item(1).style.display = "block";
                 section1.querySelectorAll("img").item(2).style.display = "block";
-                section1.querySelectorAll("img").item(3).setAttribute("src", "./images/window2.png");
-                section1.querySelectorAll("img").item(4).setAttribute("src", "./images/window2.png");
-                section1.querySelectorAll("img").item(5).setAttribute("src", "./images/city2.png");
+                section1.querySelectorAll("img").item(3).setAttribute("src", "../images/window2.png");
+                section1.querySelectorAll("img").item(4).setAttribute("src", "../images/window2.png");
+                section1.querySelectorAll("img").item(5).setAttribute("src", "../images/city2.png");
                 document.getElementById("navigation").classList.replace("night-mode", "day-mode");
                 document.getElementById("index").classList.replace("night", "day");
                 section1.querySelector("h1").style.color = "#769cc1";
@@ -133,6 +139,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 section2.style.background = "#769cc1";
                 section2.getElementsByClassName("window")[0].style.background = "#cbe9f5";
                 section3.style.background = "#769cc1";
+                clearTimeout(mcAni1);
             }, 1000);
         }else if (dayTime == true) {
             dayTime = false;
@@ -142,7 +149,7 @@ window.addEventListener('DOMContentLoaded', function() {
             section1.style.opacity = "0";
             document.getElementById("navigation").style.opacity = "0";
 
-            setTimeout(() => {
+            var mcAni2 = setTimeout(() => {
                 section1.style.opacity = "1";
                 document.getElementById("navigation").style.opacity = "0.7";
                 document.querySelector("body").style.background ="gray";
@@ -155,9 +162,9 @@ window.addEventListener('DOMContentLoaded', function() {
                 section1.getElementsByClassName("moon")[0].style.display = "block";
                 section1.querySelectorAll("img").item(1).style.display = "none";
                 section1.querySelectorAll("img").item(2).style.display = "none";
-                section1.querySelectorAll("img").item(3).setAttribute("src", "./images/window.svg");
-                section1.querySelectorAll("img").item(4).setAttribute("src", "./images/window_light.png");
-                section1.querySelectorAll("img").item(5).setAttribute("src", "./images/city.svg");
+                section1.querySelectorAll("img").item(3).setAttribute("src", "../images/window.svg");
+                section1.querySelectorAll("img").item(4).setAttribute("src", "../images/window_light.png");
+                section1.querySelectorAll("img").item(5).setAttribute("src", "../images/city.svg");
                 document.getElementById("navigation").classList.replace("day-mode", "night-mode");
                 document.getElementById("index").classList.replace("day", "night");
                 section1.querySelector("h1").style.color = "black";
@@ -166,6 +173,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 section2.style.background = "black";
                 section2.getElementsByClassName("window")[0].style.background = "gray";
                 section3.style.background = "black";
+                clearTimeout(mcAni1);
             }, 1000);
         }
     };
@@ -179,10 +187,13 @@ window.addEventListener('DOMContentLoaded', function() {
                 section2.querySelectorAll("p").item(ip).style.opacity = "0";
                 ip++;
 
-                setTimeout(() => {
+                var sec2Btn = setTimeout(() => {
                     section2.querySelectorAll("p").item(ip).animate([{opacity: "0"}, {opacity: "1"}], 500);
                     section2.querySelectorAll("p").item(ip).style.opacity = "1";
-                    setTimeout(buttonCk=false,0);
+                    var btnchk1 = setTimeout(() => {
+                        buttonCk=false;
+                        clearTimeout(btnchk1);
+                    },0);
                 }, 0);
             }else if(true && ip == 5) {
                 return false;
@@ -202,6 +213,15 @@ window.addEventListener('DOMContentLoaded', function() {
     
     document.getElementsByClassName("pf-contents")[0].querySelectorAll("p").item(0).addEventListener('click', () => {
         document.getElementsByClassName("pf-contents")[0].style.display = "none";
+    });
+    document.getElementsByClassName("portfolio-file")[1].querySelectorAll("a").item(0).addEventListener('click', () => {
+        document.getElementsByClassName("portfolio-file")[0].style.display = "none";
+        document.getElementsByClassName("pf-contents")[1].style.display = "block";
+    });
+    
+    document.getElementsByClassName("pf-contents")[1].querySelectorAll("p").item(0).addEventListener('click', () => {
+        document.getElementsByClassName("portfolio-file")[0].style.display = "block";
+        document.getElementsByClassName("pf-contents")[1].style.display = "none";
     });
 
     function buttonActionA() {
@@ -246,7 +266,12 @@ window.addEventListener('DOMContentLoaded', function() {
         cbutton.style.fontWeight = "bold";
     };
 
+    
 
+    // document.getElementById("b").querySelectorAll("a").item(1).addEventListener('mouseover',() => {
+    //     section4.getElementById("b").querySelectorAll("a").item(1).querySelectorAll("p").item(0).style.opacity = "1";
+    //     section4.getElementById("b").querySelectorAll("a").item(1).querySelectorAll("p").item(1).style.opacity = "1";
+    // });
     //여기까지 섹션4 버튼액션 모음
 
     //섹션1에서의 스크롤 액션
@@ -265,12 +290,16 @@ window.addEventListener('DOMContentLoaded', function() {
             delta = -e.detail / 3;
     
         if(delta > 0 && scrollEvent == false) {
-            scrollEvent = true;
-            setTimeout(window.scrollTo(0, 0),0);
-
-            setTimeout(function() {
-                scrollEvent = false;
-            },500);
+                scrollEvent = true;
+                var wheelActA1 = setTimeout(() => {
+                    window.scrollTo(0, 0)
+                    clearTimeout(wheelActA1);
+                },0);
+    
+                var wheelActA2 = setTimeout(() => {
+                    scrollEvent = false;
+                    clearTimeout(wheelActA2)
+                },500);
         }else if(delta < 0 && scrollEvent == false) {
             if(dayTime == false) {
                 ip = 0;
@@ -291,34 +320,41 @@ window.addEventListener('DOMContentLoaded', function() {
 
                 section1.querySelectorAll("img").item(0).animate([{opacity: 1}, {opacity: 0, offset: 0.8}, {opacity: 0.7}],{duration: 1500});
 
-                setTimeout(function() {
+                var wheelActA3 = setTimeout(function() {
                     section1.querySelectorAll("img").item(0).style.display = "none";
                     section1.querySelectorAll("img").item(4).style.display = "none";
                     document.getElementById("navigation").style.display = "none";
                     section1.querySelector("h1").style.display = "none";
                     section1.querySelectorAll("img").item(3).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
                     section1.querySelectorAll("img").item(5).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
+                    clearTimeout(wheelActA3);
                 }, 1000);
 
-                setTimeout(function() {window.scrollTo(x1, y1)}, 1500);
+                var wheelActA4 = setTimeout(function() {
+                    window.scrollTo(x1, y1)
+                    clearTimeout(wheelActA4);
+                }, 1500);
 
-                setTimeout(function() {
+                var wheelActA5 = setTimeout(function() {
                     document.getElementsByClassName("window")[0].animate([{opacity: 0}, {opacity: 1}, {opacity: 0}], 500);
                     document.getElementsByClassName("window")[0].style.opacity = "1";
+                    clearTimeout(wheelActA5);
                 }, 2000);
 
-                setTimeout(function() {
+                var wheelActA6 = setTimeout(function() {
                     section2.querySelector("img").animate([{left: "-1000px"}, {left: "90px"}], 1000);
                     section2.querySelector("img").style.left = "90px";
                     document.getElementById("navigation").style.display = "block";
                     section1.querySelector("h1").style.display = "block";
+                    clearTimeout(wheelActA6);
                 },2500);
                 
-                setTimeout(function() {
+                var wheelActA7 = setTimeout(function() {
                     section2.querySelectorAll("p").item(0).style.opacity = "1";
                     section1.querySelectorAll("img").item(0).style.display = "block";
                     section1.querySelectorAll("img").item(4).style.display = "block";
                     scrollEvent = false;
+                    clearTimeout(wheelActA7);
                 }, 4000);
             }else if(dayTime == true) {
                 ip = 0;
@@ -334,7 +370,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
                 section1.getElementsByClassName("sun")[0].animate([{opacity: 1}, {opacity: 0, offset: 0.8}, {opacity: 0.7}], {duration: 1500});
 
-                setTimeout(function() {
+                var wheelActA8 = setTimeout(function() {
                     section1.getElementsByClassName("sun")[0].style.display = "none";
                     section1.querySelectorAll("img").item(1).style.display = "none";
                     section1.querySelectorAll("img").item(2).style.display = "none";
@@ -343,29 +379,36 @@ window.addEventListener('DOMContentLoaded', function() {
                     section1.querySelector("h1").style.display = "none";
                     section1.querySelectorAll("img").item(3).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
                     section1.querySelectorAll("img").item(5).animate([{transform: "translate(-50%, 0)", width: "88%"}, {transform: "translate(-40%, 10%)", width: "5000%"}], 500);
+                    clearTimeout(wheelActA8);
                 }, 1000);
 
-                setTimeout(function() {window.scrollTo(x1, y1)}, 1500);
+                var wheelActA9 = setTimeout(function() {
+                    window.scrollTo(x1, y1);
+                    clearTimeout(wheelActA9);
+                }, 1500);
 
-                setTimeout(function() {
+                var wheelActA10 = setTimeout(function() {
                     document.getElementsByClassName("window")[0].animate([{opacity: 0}, {opacity: 1}, {opacity: 0}], 500);
                     document.getElementsByClassName("window")[0].style.opacity = "1";
+                    clearTimeout(wheelActA10);
                 }, 2000);
 
-                setTimeout(function() {
+                var wheelActA11 = setTimeout(function() {
                     section2.querySelector("img").animate([{left: "-1000px"}, {left: "90px"}], 1000);
                     section2.querySelector("img").style.left = "90px";
                     document.getElementById("navigation").style.display = "block";
                     section1.querySelector("h1").style.display = "block";
+                    clearTimeout(wheelActA11);
                 }, 2500);
 
-                setTimeout(function() {
+                var wheelActA12 = setTimeout(function() {
                     section2.querySelectorAll("p").item(0).style.opacity = "1";
                     section1.getElementsByClassName("sun")[0].style.display = "block";
                     section1.querySelectorAll("img").item(1).style.display = "block";
                     section1.querySelectorAll("img").item(2).style.display = "block";
                     section1.querySelectorAll("img").item(4).style.display = "block";
                     scrollEvent = false;
+                    clearTimeout(wheelActA12);
                 }, 4000);
             }
         }
@@ -391,9 +434,12 @@ window.addEventListener('DOMContentLoaded', function() {
         if(delta > 0 && scrollEvent == false) {
             scrollEvent = true;
 
-            setTimeout(window.scrollTo(x1, y1),0);
+            var wheelActB1 = setTimeout(() => {
+                window.scrollTo(x1, y1);
+                clearTimeout(wheelActB1);
+            },0);
 
-            setTimeout(() => {
+            var wheelActB2 = setTimeout(() => {
                 ip=0;
                 section2.querySelectorAll("p").item(ip).style.opacity = "1";
 
@@ -402,6 +448,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 }
 
                 scrollEvent = false;
+                clearTimeout(wheelActB2);
             }, 500);
         }else if(delta < 0 && scrollEvent == false) {
             scrollEvent = true;
@@ -436,7 +483,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            setTimeout(function() {
+            var wheelActB3 = setTimeout(function() {
                 ip=0;
                 section2.querySelectorAll("p").item(ip).style.opacity = "1";
 
@@ -449,21 +496,24 @@ window.addEventListener('DOMContentLoaded', function() {
                 }
 
                 section3.getElementsByClassName("window")[0].animate([{opacity:0},{opacity:1}],500);
+                clearTimeout(wheelActB3);
             }, 1000);
 
-            setTimeout(function() {
+            var wheelActB4 = setTimeout(function() {
                 section3.getElementsByClassName("window")[0].style.opacity = "1";
+                clearTimeout(wheelActB4);
             }, 1700);
 
-            setTimeout(function() {
+            var wheelActB5 = setTimeout(function() {
                 for(var i = 0; i < 6; i++) {
                     mLogo[i].animate([{opacity: "0"}, {opacity: "1"}], 500);
                     loBar[i].animate([{opacity: "0"}, {opacity: "1"}], 500);
                     loPer[i].querySelector("p").animate([{opacity: "0"}, {opacity: "1"}], 500);
+                    clearTimeout(wheelActB5);
                 }
             }, 1800);
 
-            setTimeout(function() {
+            var wheelActB6 = setTimeout(function() {
                 for(var i = 0; i < 6; i++) {
                     mLogo[i].style.opacity = "1";
                     loBar[i].style.opacity = "1";    
@@ -476,9 +526,10 @@ window.addEventListener('DOMContentLoaded', function() {
                 loInBar[3].animate([{width: 0}, {width: "90%"}], 500);
                 loInBar[4].animate([{width: 0}, {width: "70%"}], 500);
                 loInBar[5].animate([{width: 0}, {width: "60%"}], 500);
+                clearTimeout(wheelActB6);
             }, 2300);
 
-            setTimeout(function() {
+            var wheelActB7 = setTimeout(function() {
                 var count1 = 0;
                 var count2 = 0;
                 var count3 = 0;
@@ -530,6 +581,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 loInBar[5].style.width = "60%";
 
                 scrollEvent = false;
+                clearTimeout(wheelActB7)
             }, 2800);
         }
     }
@@ -569,10 +621,11 @@ window.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            setTimeout(function() {
+            var wheelActC1 = setTimeout(function() {
                 document.getElementsByClassName("window")[0].animate([{opacity: 0}, {opacity: 1}], 500);
                 document.getElementsByClassName("window")[0].style.opacity = "1";
                 scrollEvent = false;
+                clearTimeout(wheelActC1);
             },1000);
 
         }else if(delta < 0 && scrollEvent == false) {
@@ -599,44 +652,48 @@ window.addEventListener('DOMContentLoaded', function() {
                 loPer[i].querySelector("p").style.opacity = "0";
             }
             
-            setTimeout(() => {
+            var wheelActC2 = setTimeout(() => {
                 document.getElementsByClassName("moniter-wrap")[0].style.opacity = "0";
                 document.getElementById("ab").style.left = "10000px";
                 document.getElementById("bb").style.left = "10000px";
                 document.getElementById("cb").style.left = "10000px";
                 document.getElementsByClassName("smallcom")[4].style.zIndex = "1";
-                document.getElementById("more").classList.remove("on-mode");
-                document.getElementById("more").classList.add("off-mode");
+                document.getElementById("more").classList.replace("on-mode", "off-mode");
                 document.getElementsByClassName("smallcom")[4].animate([{width: '100%', left: '0', top: '0'}, {width: '2500px', left: '-325%', top: '-63vh'}], 500);
+                clearTimeout(wheelActC2);
             }, 500);
 
-            setTimeout(function() {
-                document.getElementById("overcom").classList.add("bigcom");
+            var wheelActC3 = setTimeout(function() {
+                document.getElementById("overcom").classList.replace("smallcom", "bigcom");
                 window.scrollTo(x2, y2);
-                document.getElementById("overcom").classList.remove("bigcom");
-                document.getElementById("overcom").classList.add("smallcom");
-                document.getElementsByClassName("smallcom")[4].style.zIndex = "0";
-            }, 950);
+                document.getElementById("overcom").classList.replace("bigcom", "smallcom");
+                // document.getElementById("overcom").classList.add("smallcom");            
+                document.getElementById("overcom").style.zIndex = "0";
+                clearTimeout(wheelActC3);
+            }, 1000);
 
-            setTimeout(function() {
-                document.getElementById("more").classList.add("on-mode");
-                document.getElementById("more").classList.remove("off-mode");
-            }, 1050);
+            var wheelActC4 = setTimeout(function() {
+                // document.getElementById("more").classList.add("on-mode");
+                document.getElementById("more").classList.replace("off-mode", "on-mode");
+                clearTimeout(wheelActC4);
+            }, 1001);
 
-            setTimeout(function() {
+            var wheelActC5 = setTimeout(function() {
                 document.getElementById("ab").animate([{left: "10000px"}, {left: "1000px"}], 1000);
                 document.getElementById("bb").animate([{left: "10000px"}, {left: "1000px"}], 1000);
                 document.getElementById("cb").animate([{left: "10000px"}, {left: "1000px"}], 1000);
                 document.getElementById("ab").style.left = "1000px";
                 document.getElementById("bb").style.left = "1000px";
                 document.getElementById("cb").style.left = "1000px";
-            } ,1000);
+                clearTimeout(wheelActC5);
+            } ,1002);
 
-            setTimeout(function() {
+            var wheelActC6 = setTimeout(function() {
                 document.getElementsByClassName("moniter-wrap")[0].animate([{opacity: 0}, {opacity: 1}], 1000);
                 document.getElementsByClassName("moniter-wrap")[0].style.opacity = "1";
                 scrollEvent = false;
-            }, 1100);
+                clearTimeout(wheelActC6);
+            }, 1003);
         }
     }
     
@@ -674,8 +731,9 @@ window.addEventListener('DOMContentLoaded', function() {
             
             window.scrollTo(x1, y1);
 
-            setTimeout(() => {
+            var wheelActD1 = setTimeout(() => {
                 scrollEvent = false;
+                clearTimeout(wheelActD1);
             }, 500);
 
         }else if(delta < 0 && scrollEvent == false) {
@@ -683,8 +741,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
             window.scrollTo(x2, y2);
 
-            setTimeout(() => {
+            var wheelActD2 = setTimeout(() => {
                 scrollEvent = false;
+                clearTimeout(wheelActD2);
             }, 500);
         }
     }

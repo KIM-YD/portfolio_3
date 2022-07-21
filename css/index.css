@@ -60,6 +60,178 @@ body {
   background-color: gray;
 }
 
+#open-page {
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #2f2039), to(#6f4b8d));
+  background: linear-gradient(#2f2039 10%, #6f4b8d);
+  text-align: center;
+}
+
+#open-page h1, #open-page p {
+  color: #fff9c5;
+  opacity: 0.8;
+  margin: 1rem;
+}
+
+#open-page h1 {
+  margin-top: 40vh;
+}
+
+#open-page button {
+  position: absolute;
+  top: 50vh;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  background: none;
+  border: none;
+  color: #fff9c5;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  border: 1px solid #fff9c5;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
+#open-page button:hover {
+  border: 1px solid #fff9c5;
+  border-radius: 5px;
+  opacity: 1;
+  font-weight: 600;
+}
+
+@-webkit-keyframes shining {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes shining {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#open-page .shine {
+  -webkit-animation-name: shining;
+          animation-name: shining;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+#open-page .star1 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+#open-page .star2 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+#open-page .star3 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 10%;
+  left: 80%;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+}
+
+#open-page .star4 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 25%;
+  left: 60%;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+#open-page .star5 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 10%;
+  left: 45%;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+#open-page .star6 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+#open-page .star7 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  -webkit-animation-duration: 1.8s;
+          animation-duration: 1.8s;
+}
+
+#open-page .star8 {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff9c5;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
 .night-mode {
   width: 150px;
   border: 1.5px solid #fff9c5;
@@ -195,15 +367,6 @@ main #index img {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
-}
-
-@-webkit-keyframes shining {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
 }
 
 @keyframes shining {
@@ -989,7 +1152,12 @@ main #more #b div a span {
   font-weight: 600;
 }
 
+main #more #b div a p {
+  font-size: 1rem;
+}
+
 main #more #b div a:last-child {
+  float: right;
   background-color: lightgray;
   font-size: 3.5rem;
   font-weight: 600;

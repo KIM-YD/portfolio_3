@@ -3,6 +3,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
     <title>Calculator</title>
 <head>
     <style>
@@ -98,7 +100,7 @@
             <input type="button" class="dot" value="." onclick="readButton('.')">
             <input type="button" class="num" value="0" onclick="readButton('0')">
             <input type="button" class="operator result" value="=" onclick="calculate()">
-            <input type="button" class="back" value="Back Page" onclick="backPage()">
+            <!-- <input type="button" class="back" value="Back Page" onclick="backPage()"> -->
         </form>
     </div>
 </body>
@@ -129,8 +131,8 @@
         document.forms.output.value = "";
     }
 
-    function backPage() {
-        history.back();
-    }
+    // function backPage() {
+    //     history.back();
+    // }
 </script>
 </html>
